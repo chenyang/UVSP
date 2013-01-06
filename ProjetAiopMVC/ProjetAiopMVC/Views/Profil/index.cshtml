@@ -1,0 +1,206 @@
+﻿@model ProjetAiopMVC.Models.ENSEIGNANT
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // Viewbag a disposition
+    // Viewbag.ERROR qui contient probablement un message d'erreur
+    if (ViewBag.ERROR == null)
+    {
+        ViewBag.ERROR = "";
+    }
+    
+        
+}
+
+
+<div class="page-header">
+    <div id="alert_1">
+        <img src="images/user-prob.png" alt="User" />
+    </div>
+    <br />
+    <h1>Profil Utilisateur </h1>
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="container-fluid">
+
+        <div class="span5" style="margin-left: 45px; width: 33%">
+            <div class="hero-unit" style="height: 305px">
+                <table style="width: 100%">
+                    @using (Html.BeginForm("Verification", "Profil"))
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="images/user-1.png" style="width: 50px; height: 50px" alt="User" /></td>
+                                <td>
+                                    <h3>Connection</h3>
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>login</b>
+                                    </h5>
+                                </td>
+                                <td>@Model.NOM</td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Ancien mot de passe</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @Html.Password("OldPassword")
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Mot de passe</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @Html.Password("NewPassword")
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Confirmation</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @Html.Password("NewPasswordConfirmation")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="overlay" id="overlay" style="display: none;"></div>
+                                    <div class="box" id="box">
+                                        <h3>Etes-vous sûr de valider les changements effectués ?</h3>
+                                        <br />
+                                        <div style="text-align: center">
+                                            <input id="boxclose" style="margin-right: 50px; width: 60px; height: 60px" type="image" value="Verification" src="~/images/class-plus.png" alt="Verification" />
+
+                                            <a id="boxclose2" style="width: 60px; height: 60px">
+                                                <img src="~/images/class-delete.png" style="width: 85px; height: 85px" alt="Cancel" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    </td>
+                                    <td>
+                                    <p>
+                                        @{
+                        if (ViewBag.ERROR == "")
+                        {
+                                            @: 
+        }
+                        else
+                        {
+                                            @ViewBag.ERROR
+                        }
+                                        }
+
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                       
+                     
+                    }<!-- Fermeture de la form permettant le changement de mot de passe  -->
+                </table>
+            </div>
+        </div>
+        <div class="span6 offset1">
+            <div class="hero-unit" style="height: 305px">
+                <table style="width: 100%">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="images/user-info.png" width="50" height="50"
+                                    alt="User" /></td>
+                            <td>
+                                <h3>Vos coordonnées</h3>
+                                <td>
+                        </tr>
+                        <tr style="height: 35px">
+                            <td>
+                                <h5>
+                                    <b>Nom</b>
+                                </h5>
+                            </td>
+                            <td>
+                                @Model.NOM
+                            </td>
+                        </tr>
+                        <tr style="height: 35px">
+                            <td>
+                                <h5>
+                                    <b>Prénom</b>
+                                </h5>
+                            </td>
+                            <td>
+                                @Model.PRENOM
+                            </td>
+                        </tr>
+                        <tr style="height: 35px">
+                            <td>
+                                <h5>
+                                    <b>Role</b>
+                                </h5>
+                            </td>
+                            <td>
+                                @ViewBag.PROFIL
+                            </td>
+                        </tr>
+                        <tr style="height: 35px">
+                            <td>
+                                <h5>
+                                    <b>Cours</b>
+                                </h5>
+                            </td>
+                            <td>
+                                @Html.DropDownList("ListeCours", "Afficher la liste des cours")
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="span2" id="hero-orga"
+            style="margin-right: 45px; float: right; font-size: large;">
+            <div id="commentWrapper" style="width: 150px">
+                <div id="comment" style="width: 150px">
+                    <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                        <div style="text-align: center">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <a
+                                class="btn btn-inverse btn-large activator2 "
+                                id="activator3" rel="popover"
+                                data-original-title=" Valider les modifications"
+                                data-content="Permet de valider les différentes modifications effectuées">
+                                <img src="images/user-edit.png" style="width: 50px; height: 50px"
+                                    alt="edit-profil" />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

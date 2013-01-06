@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>UVSP-Web</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/asa.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/jquery-ui-1.8.1.custom.css")
+    @Styles.Render("~/Content/jquery-ui-1.8.21.custom.css")
+    @Styles.Render("~/Content/jquery.datepick.css")
+    @Styles.Render("~/Content/ui.jqgrid.css")
+    @Styles.Render("~/Content/ui.multiselect.css")
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-tab.js"></script>
+    <script type='text/javascript' src="~/Scripts/ui/jquery.ui.datepicker.js"></script>
+    <script type='text/javascript' src="~/Scripts/ui/jquery.ui.datepicker-fr.js"></script>
+    <script type='text/javascript' src="~/Scripts/ui/jquery.ui.core.js"></script>
+
+</head>
+<body>
+    <div id="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav" id="menu">
+                        <li style="font-weight: 200; line-height: 1; color: #ffffff">
+                            @Html.ActionLink("UVSP", "Index", "Home")
+                        </li>
+                        <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                        @if (User.IsInRole("Super_user"))
+                        {
+                            <li class="dropdown"><a class="dropdown-toggle"
+                                data-toggle="dropdown">Gestion <b class="caret"></b>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Salles", "Index", "Salle")</li>
+                                    <li>@Html.ActionLink("Enseignants", "Index", "Enseignant")</li>
+                                    <li>@Html.ActionLink("Reservations", "Index", "Reservation")</li>
+                                    <li>@Html.ActionLink("Greservations", "Index", "Greservation")</li>
+                                </ul>
+                            </li>
+                        }
+                        <li class="dropdown"><a class="dropdown-toggle"
+                            data-toggle="dropdown">Consultation<b class="caret"></b>
+                        </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Emplois du temps", "Index", "Edt")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        @if (WebSecurity.IsAuthenticated)
+                                                {
+                            <li class="divider-vertical"></li>  
+                            <li><a href="/" target="_blank">@User.Identity.Name</a></li>
+                            <li class="divider-vertical"></li>                      
+                                                }
+                        <li>@Html.ActionLink("Mon profil", "Index", "Profil")</li>
+                        <li>@Html.ActionLink("Quitter", "LogOffa", "Account")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            @RenderBody()
+        </div>
+    </div>
+    <div id="footer3">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">UVSP 2.0</a>
+                    <div class="nav pull-right">
+                        <br />
+                        Réalisé par
+						<a href="http://www.polytech-montpellier.fr/">Polytech'Montpellier</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#orgaTabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#activator').popover({
+                placement: 'left'
+            });
+            $('#activator1').popover({
+                placement: 'left'
+            });
+            $('#activator2').popover({
+                placement: 'left'
+            });
+            $('#activator3').popover({
+                placement: 'left'
+            });
+            $('#activator3').click(function () {
+                $('#overlay').fadeIn('fast', function () {
+                    $('#box').animate({
+                        'top': '160px'
+                    }, 500);
+                });
+            });
+            $('#activator4').click(function () {
+                $('#overlay1').fadeIn('fast', function () {
+                    $('#box1').animate({
+                        'top': '160px'
+                    }, 500);
+                });
+            });
+            $('#boxclose').click(function () {
+                $('#box').animate({
+                    'top': '-400px'
+                }, 500, function () {
+                    $('#overlay').fadeOut('fast');
+                });
+            });
+            $('#boxclose2').click(function () {
+                $('#box').animate({
+                    'top': '-400px'
+                }, 500, function () {
+                    $('#overlay').fadeOut('fast');
+                });
+            });
+            $('#boxclose1').click(function () {
+                $('#box1').animate({
+                    'top': '-400px'
+                }, 500, function () {
+                    $('#overlay1').fadeOut('fast');
+                });
+            });
+            $('#boxclose12').click(function () {
+                $('#box1').animate({
+                    'top': '-400px'
+                }, 500, function () {
+                    $('#overlay1').fadeOut('fast');
+                });
+            });
+            $('#myTab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            })
+        });
+        $(function () {
+            $("#date").datepicker();
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

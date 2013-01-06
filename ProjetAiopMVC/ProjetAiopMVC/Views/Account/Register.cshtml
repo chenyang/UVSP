@@ -1,0 +1,49 @@
+﻿@model ProjetAiopMVC.Models.RegisterModel
+@{
+    ViewBag.Title = "S'inscrire";
+    Layout = "~/Views/Shared/_Layout_login.cshtml"; 
+}
+<div style="text-align: center">
+    <div class="container-fluid" style="margin-left: auto; margin-right: auto; margin-top: 20px; width: 650px">
+        <h2>@ViewBag.Title.</h2>
+        <br />
+        <div class="well form-inline">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <fieldset>
+                    <legend>Formulaire d’inscription</legend>
+                    <table>
+                        <tr>
+                            <td style="width: 46.5%">@Html.LabelFor(m => m.UserName)</td>
+                            <td>@Html.TextBoxFor(m => m.UserName)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(m => m.Password)</td>
+                            <td>@Html.PasswordFor(m => m.Password)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(m => m.ConfirmPassword)</td>
+                            <td>@Html.PasswordFor(m => m.ConfirmPassword)</td>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" class="btn btn-inverse" value="S'inscrire" /></td>
+                            </tr>
+                    </table>
+                </fieldset>
+                <br />
+                <em>Si vous rencontrez
+                        un
+						quelconque problème, merci de vous adresser au <a
+                            href="mailto:abdeslam.ahardane@gmail.com">webmaster</a>.
+                        <br />
+                </em>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

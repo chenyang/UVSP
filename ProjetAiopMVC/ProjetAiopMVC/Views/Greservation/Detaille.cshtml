@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ProjetAiopMVC.Models.RESERVATION>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des Reservations</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_RESERVATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SALLE.NUMERO_SALLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CRENAUX.HEURE_DEBUT_AND_HEURE_FIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENSEIGNEMENT.DESCRIPTION_ENSEIGNEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_RESERVATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </th>
+
+        <th></th>
+    </tr>
+<ul>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_RESERVATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALLE.NUMERO_SALLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CRENAUX.HEURE_DEBUT_AND_HEURE_FIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENSEIGNEMENT.DESCRIPTION_ENSEIGNEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_RESERVATION)
+        </td>
+        <td>
+                @if ((int)item.STATUS == 0)
+                {
+                   <span style="color: #f00;">En attente</span>
+                }
+
+                @if ((int)item.STATUS == 1)
+                {
+                   <b>Accepté </b>
+                }
+
+                @if ((int)item.STATUS == 2)
+                {
+                  <b>Refusé</b>
+                }
+            
+        </td>
+        <td>
+            @Html.ActionLink("Accepter", "Accepter", new { ID_RESERVATION = item.ID_RESERVATION/* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Refuser", "Refuser", new { ID_RESERVATION = item.ID_RESERVATION/* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+</ul>
+
+</table>

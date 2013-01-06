@@ -1,0 +1,125 @@
+﻿
+
+@{
+    ViewBag.Title = "Gestionnaire Salle";
+}
+
+	<div id="container">
+		<div class="page-header">
+			<div id="alert_1">
+				<img src="~/images/class-sear.png" alt="User" />
+			</div>
+			<br/>
+			<h1>Gestion des salles</h1>
+		</div>
+
+		<div class="row">
+			<div class="container-fluid" id="hero-home" style="margin-bottom: 30px">
+				<div class="row">
+					<div class="span5 offset1">
+						<div class="hero-unit">
+							<h3>Visualisation des salles</h3>
+							<p>Consultation des différentes salles et leurs
+								caractéristiques</p>
+							<p>
+								<a href="Salle/Detaille"> <input type="button"
+									class="btn btn-inverse btn-large" value="En savoir plus">
+								</a>
+							</p>
+						</div>
+					</div>
+					<div class="span5 offset2">
+						<div class="hero-unit">
+							<h3>Ajouter une salle</h3>
+							<p>Ajout d'une nouvelle salle à l'application ainsi que ces
+								différentes caractéristiques</p>
+							<p>
+								<a href="Salle/Ajouter"> <input type="button"
+									class="btn btn-inverse btn-large" value="En savoir plus">
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span5 offset1">
+						<div class="hero-unit">
+							<h3>Modification d'une salle</h3>
+							<p>Modification des différentes caractéristiques liées à une
+								salle</p>
+							<p>
+								<a href="Salle/Modifier"> <input type="button"
+									class="btn btn-inverse btn-large" value="En savoir plus">
+								</a>
+							</p>
+						</div>
+					</div>
+					<div class="span5 offset2">
+						<div class="hero-unit">
+							<h3>Suppression d'une salle</h3>
+							<p>Suppression d'une salle et de ces caractéristiques de
+								l'application</p>
+							<p>
+								<a href="Salle/Supprimer"> <input type="button"
+									class="btn btn-inverse btn-large" value="En savoir plus">
+								</a>
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</center>
+	<div id="footer3">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand">UVSP 2.0</a>
+					<ul class="nav pull-right">
+						</br> Réalisé par
+						<a href="http://www.polytech-montpellier.fr/">
+							Polytech'Montpellier</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	    $(function () {
+	        $('#activator').popover({
+	            placement: 'left'
+	        });
+	        $('#activator').click(function () {
+	            $('#overlay').fadeIn('fast', function () {
+	                $('#box').animate({
+	                    'top': '160px'
+	                }, 500);
+	            });
+	        });
+	        $('#boxclose').click(function () {
+	            $('#box').animate({
+	                'top': '-400px'
+	            }, 500, function () {
+	                $('#overlay').fadeOut('fast');
+	            });
+	        });
+	        $('#boxclose2').click(function () {
+	            $('#box').animate({
+	                'top': '-400px'
+	            }, 500, function () {
+	                $('#overlay').fadeOut('fast');
+	            });
+	        });
+
+	    });
+	</script>
+</body>
+

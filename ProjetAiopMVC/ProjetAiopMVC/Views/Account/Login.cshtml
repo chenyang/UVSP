@@ -1,0 +1,74 @@
+﻿@model ProjetAiopMVC.Models.LoginModel
+
+@{
+    ViewBag.Title = "Se connecter";
+    Layout = "~/Views/Shared/_Layout_login.cshtml"; 
+}
+
+<div style="text-align: center">
+    <div class="container-fluid" style="margin-left: auto; margin-right: auto; margin-top: 20px; width: 650px">
+        <h2>Veuillez vous identifier</h2>
+        <br />
+        <section id="loginForm">
+            <div class="well form-inline">
+                @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+                {
+                  
+
+                    <fieldset>
+                        <legend>Formulaire de connexion</legend>
+                        <br />
+                        @Html.AntiForgeryToken()
+                        <div class="alert-error">@Html.ValidationSummary(true)</div>
+                        <table>
+                            <tr>
+                                <td style="width: 46.5%">@Html.LabelFor(m => m.UserName)</td>
+                                <td>@Html.TextBoxFor(m => m.UserName)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="color: red">@Html.ValidationMessageFor(m => m.UserName)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.LabelFor(m => m.Password)</td>
+                                <td>@Html.PasswordFor(m => m.Password)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="color: red">@Html.ValidationMessageFor(m => m.UserName)</td>
+                            </tr>
+                            <tr style="height: 50px">
+                                <td></td>
+                                <td>@Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Se connecter" class="btn btn-inverse" /></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <em>Avant d'accéder à l'application UVSP, vous devez vous
+						identifier en utilisant votre login et
+                        <br />
+                        votre mot de passe. Si vous
+						n'avez pas de login ni de mot de passe ou si vous rencontrez
+                        <br />
+                        un
+						quelconque problème, merci de vous adresser au <a
+                            href="mailto:abdeslam.ahardane@gmail.com">webmaster</a>.
+                        <br />
+                    </em>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

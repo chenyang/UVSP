@@ -1,0 +1,53 @@
+﻿@model ProjetAiopMVC.Models.ENSEIGNANT
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ENSEIGNANT</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ID_ENSEIGNANT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ID_ENSEIGNANT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NOM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NOM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PRENOM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRENOM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MDP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MDP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SUPER_USER)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SUPER_USER)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

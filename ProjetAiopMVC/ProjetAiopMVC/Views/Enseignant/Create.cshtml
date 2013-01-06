@@ -1,0 +1,200 @@
+﻿@model ProjetAiopMVC.Models.ENSEIGNANT
+
+@{
+    ViewBag.Title = "Ajouter un enseignant";
+    ViewBag.MDP = "0";
+    ViewBag.SUPER_USER = "0";
+}
+
+<div class="page-header">
+    <div id="alert_1">
+        <img src="~/images/class-plus.png" alt="User" />
+    </div>
+    <br />
+    <h1>Ajout d'un enseignant </h1>
+</div>
+
+
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="span5" style="margin-left: 45px; width: 33%">
+            <div class="hero-unit" style="height: 305px">
+                <table style="width: 300px;">
+                    <tbody>
+                        <tr style="height: 15px"></tr>
+                        <tr>
+                            <td>
+                                <img src="~/images/armo.png" style="width: 50px; height: 50px"
+                                    alt="User" /></td>
+                            <td>
+                                <h3>Information d'ajout</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><em>Veuillez completer ci-contre les informations pour l'ajout d'un enseignant. Si l'enseignant est déjà référencé, la confirmation vous indiquera une erreur.</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="span6 offset1">
+            <div class="hero-unit" style="height: 305px">
+                <table style="margin-top: 15px; width: 100%">
+                    <tbody>
+                        <tr style="height: 50px">
+                            <td>
+                                <img src="~/images/armo3.png" style="width: 50px; height: 50px"
+                                    alt="User" /></td>
+                            <td>
+                                <h3>Caractéristiques</h3>
+                            </td>
+                        </tr>
+                        <!-- 
+                                    ON ENTRE ICI LE CODE PERMETTANT DE FAIRE LES INPUTS !!!!!!!!!
+                                    
+                                    
+                                    -->
+                        @using (Html.BeginForm())
+                        {
+                            
+                            @Html.ValidationSummary(true)
+                           
+                            <tr style="width: 45%; height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Nom</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.NOM)
+                                </td>
+                            </tr>
+                            <tr style="color: red">
+                                <td></td>
+                                <td>@Html.ValidationMessageFor(model => model.NOM) </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Prenom</b>
+                                    </h5>
+                                </td>
+                                <td>@Html.EditorFor(model => model.PRENOM)
+                                </td>
+                            </tr>
+                            <tr style="color: red">
+                                <td></td>
+                                <td>@Html.ValidationMessageFor(model => model.PRENOM) </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Mot de passe</b>
+                                    </h5>
+                                </td>
+                                <td>@Html.Password("Mot de passe")
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Type d'utilisateur</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <div style="margin-left: 22px">
+                                        @Html.RadioButton("Profil", "Super_user") Administrateur
+                                    <br />
+
+                                        @Html.RadioButton("Profil", "Normal_user", true) Enseignant
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <div class="overlay" id="overlay" style="display: none;"></div>
+                                    <div class="box" id="box">
+                                        <h3>Etes-vous sûr de valider les changements effectués ?</h3>
+                                        <br />
+                                        <div style="text-align: center">
+                                            <input type="image" alt="Create" id="boxclose" src="~/images/class-plus.png" style="width: 60px; height: 60px" />
+                                            <a id="boxclose2" style="width: 85px; height: 85px">
+                                                <img src="~/images/class-delete.png" alt="Cancel" style="width: 85px; height: 85px" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><em>
+                                    @{
+                            if (ViewBag.ERROR != null)
+                            {
+                                @: @ViewBag.ERROR
+                            }
+                            else if (ViewBag.Login != null)
+                            {
+                                        @: L'utilisateur a été ajouté avec le login @ViewBag.Login
+                            }   
+                                        
+                                    }
+
+                                </em></td>
+                            </tr>
+                            
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="span2" id="hero-orga"
+            style="margin-right: 45px; float: right; font-size: large;">
+            <div id="commentWrapper" style="width: 150px">
+                <div id="comment" style="width: 150px">
+                    <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                        <div style="text-align: center">
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2"
+                                id="activator" rel="popover"
+                                data-original-title="Visualisation des enseignants"
+                                data-content="Fenêtre de visualisation des différentes enseignants référencés"
+                                href="~/enseignant/Visaenseignant">
+                                <img src="~/images/class-vis.png" style="width: 50px; height: 50px" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2"
+                                id="activator2" rel="popover"
+                                data-original-title="Modifier un enseignant"
+                                data-content="Fenêtre de modification d'un enseignant"
+                                href="~/enseignant/Modifenseignant">
+                                <img src="~/images/class-mod.png" style="width: 50px; height: 50px" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2"
+                                href="/enseignant/Supenseignant" id="activator1"
+                                rel="popover" data-original-title="Supprimer un enseignant"
+                                data-content="Fenêtre de suppression d'un enseignant">
+                                <img src="~/images/class-delete.png" style="width: 50px; height: 50px" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-primary btn-large activator2"
+                                id="activator3" rel="popover" href="#"
+                                data-original-title="Confirmer l'ajout"
+                                data-content="Permet d'ajouter l'enseignant que vous avez identifier">
+                                <img src="~/images/class-plus.png" style="width: 50px; height: 50px" alt="edit-profil" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

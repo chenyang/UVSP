@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Ajouter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @model ProjetAiopMVC.Models.ReservationModels
+}
+
+<div id="container">
+    <!--Note HERE IS A FORM-->
+    @using (Html.BeginForm("Soumettre", "Reservation", new { this.Model }))
+    {
+        @Html.ValidationSummary(true)
+
+
+        <div class="page-header">
+            <div id="alert_1">
+                <img src="~/images/file1.png" alt="User" />
+            </div>
+            <br />
+            <h1>Soumettre une nouvelle reservation</h1>
+        </div>
+
+        <div class="overlay" id="overlay" style="display: none;"></div>
+        <div class="box" id="box">
+            <h3>Etes-vous sûr de valider les changements effectués ?</h3>
+            <br />
+            <div style="text-align: center">
+                <input id="boxclose" type="image" src="~/images/class-plus.png" style="width: 60px; height: 60px" />
+                <a id="boxclose2" style="width: 60px; height: 60px">
+                    <img src="~/images/class-delete.png" style="width: 85px; height: 85px"
+                        alt="Cancel" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="span5" style="margin-left: 45px; width: 33%">
+                    <div class="hero-unit" style="height: 305px">
+                        <table style="width: 100%">
+                            <tbody>
+                                <tr style="height: 15px"></tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/images/armo.png" style="width: 50px; height: 50px" alt="User" /></td>
+                                    <td>
+                                        <h3>Information de soumission</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><em>Veuillez completer ci-contre les informations pour la
+										soumission d'une nouvelle reservation. Si une salle est déjà
+										reserver à la date souhaitée, l'application renvera une
+										erreur.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="span6 offset1">
+                    <div class="hero-unit" style="height: 305px">
+                        <table style="width: 100%">
+                            <tbody>
+                                <tr style="height: 50px">
+                                    <td>
+                                        <img src="~/images/armo3.png" alt="User" style="width: 50px; height: 50px" /></td>
+                                    <td>
+                                        <h3>Nouvelle reservation</h3>
+                                    </td>
+                                </tr>
+                                <tr style="height: 35px">
+                                    <td>
+                                        <h5>
+                                            <b>Salle</b>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.RESERVATION.ID_SALLE, (SelectList)ViewBag.liste_salles, String.Empty)
+                                        @Html.ValidationMessageFor(model => model.RESERVATION.ID_SALLE)
+                                    </td>
+                                </tr>
+                                <tr style="height: 35px">
+                                    <td>
+                                        <h5>
+                                            <b>Date</b>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <!--<input type="text" id="date" placeholder="DD/MM/YYYY" class="hasDatepicker">-->
+                                        @Html.TextBoxFor(model => model.RESERVATION.DATE_STRING, new { id = "date", placeholder = "DD/MM/YYYY" })
+                                        @Html.ValidationMessageFor(model => model.RESERVATION.DATE_STRING)
+                                    </td>
+                                    <tr style="height: 35px">
+                                <tr>
+                                    <td>
+                                        <h5>
+                                            <b>Créneau</b>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.RESERVATION.ID_CRENEAU, (SelectList)ViewBag.liste_creneaux, String.Empty)
+                                        @Html.ValidationMessageFor(model => model.RESERVATION.ID_CRENEAU)
+                                    </td>
+                                </tr>
+                                <tr style="height: 35px">
+                                    <td>
+                                        <h5>
+                                            <b>Enseignement</b>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.RESERVATION.ID_ENSEIGNEMENT, (SelectList)ViewBag.liste_enseignements, String.Empty)
+                                        @Html.ValidationMessageFor(model => model.RESERVATION.ID_ENSEIGNEMENT)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="span2" id="hero-orga"
+                    style="margin-right: 45px; float: right; font-size: large;">
+                    <div id="commentWrapper" style="width: 150px">
+                        <div id="comment" style="width: 150px">
+                            <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                                <div style="text-align: center">
+                                    <br />
+                                    <br />
+                                    <a class="btn btn-inverse btn-large activator2" id="activator" rel="popover"
+                                        data-original-title="Visualisation de mes reservations"
+                                        data-content="Fenêtre de visualisation de mes différentes reservations"
+                                        href="./MesReservations">
+                                        <img src="~/images/file.png"
+                                            style="width: 50px; height: 50px" alt="edit-profil" /></a>
+                                    <br />
+                                    <br />
+                                    <a
+                                        class="btn btn-primary btn-large activator2"
+                                        id="activator3" rel="popover"
+                                        data-original-title="Soumettre la reservation"
+                                        data-content="Soumettre les données de reservations à l'administrateur ou au responsable">
+                                        <img src="~/images/file-true.png" style="width: 50px; height: 50px"
+                                            alt="edit-profil" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    }
+</div>

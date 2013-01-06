@@ -1,0 +1,230 @@
+﻿@model ProjetAiopMVC.Models.ENSEIGNANT
+
+@{
+    
+    ViewBag.Title = "Supprimer un enseignant";
+    Layout = "~/Views/Shared/_Layout.cshtml";  
+}
+
+<div class="page-header">
+    <div id="alert_1">
+        <img src="~/images/class-delete.png" alt="User" />
+    </div>
+    <br />
+    <h1>Suppression d'un enseignant</h1>
+</div>
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="span5" style="margin-left: 45px; width: 33%">
+            <div class="hero-unit" style="height: 305px">
+                <table style="width: 100%">
+                    <tbody>
+                        <tr style="height: 15px"></tr>
+                        <tr>
+                            <td>
+                                <img src="~/images/armo.png" style="width: 50px; height: 50px"
+                                    alt="User" /></td>
+                            <td>
+                                <h3>Sélection enseignant</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <ul style="height: 200px; background-size: 100% 100%; overflow: auto; border: 1px solid #000000; background-color: white">
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in ViewBag.listeEnseignant)
+                                        {
+                                            i++;
+                                            if (i % 2 == 0)
+                                            {
+                                        <li style="margin-left: 5px">@Html.ActionLink((String)item.NOM, "Supenseignant", new { id = item.ID_ENSEIGNANT })</li>
+                                         
+                                            }
+                                            else
+                                            {
+                                        <li style="margin-left: 5px; background-color: #F0F0F0">@Html.ActionLink((String)item.NOM, "Supenseignant", new { id = item.ID_ENSEIGNANT })</li>
+                                      
+                                            }
+                                        }
+                                    }
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="span6 offset1">
+            <div class="hero-unit" style="height: 305px">
+                <table style="width: 100%">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(m => Model.ID_ENSEIGNANT)
+                        @Html.HiddenFor(m => Model.LOGIN)
+                        <tbody>
+                            <tr style="height: 50px">
+                                <td>
+                                    <img src="~/images/armo3.png" style="width: 50px; height: 50px"
+                                        alt="User" /></td>
+                                <td>
+                                    <h3>Caractéristiques enseignant</h3>
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Nom</b>
+                                    </h5>
+                                </td>
+
+                                <td>
+                                    @{
+                        if (Model == null)
+                        {
+                                        @: Veuillez choisir l'enseignant à supprimer
+                                 }
+                        else
+                        {
+                                        @Html.EditorFor(m => Model.NOM)
+                        }
+                                    }
+
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Prénom</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @{
+                        if (Model == null)
+                        {
+                                        @: Veuillez choisir l'enseignant à supprimer
+                                 }
+                        else
+                        {
+                                        @Html.EditorFor(m => Model.PRENOM)
+                        }
+                                    }
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Mot de passe</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @{
+                        if (Model == null)
+                        {
+                                        @: Veuillez choisir l'enseignant à supprimer
+                                 }
+                        else
+                        {
+                                        @: ************
+                        }
+                                    }
+
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+                                    <h5>
+                                        <b>Profil utilisateur</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    @{
+                        if (Model == null)
+                        {
+                                        @: Veuillez choisir l'enseignant à supprimer
+                                  }
+                        else
+                        {  @: ************
+                                    }
+                                    }
+                                </td>
+                            </tr>
+                            <tr style="height: 35px">
+                                <td>
+
+                                    <div class="overlay" id="overlay" style="display: none;"></div>
+                                    <div class="box" id="box">
+                                        <h3>Etes-vous sûr de valider les changements effectués ?</h3>
+                                        <br />
+                                        <div style="text-align: center">
+                                            @{
+                        if (Model != null)
+                        {
+                            Model.ID_ENSEIGNANT.ToString();
+                                                <input id="boxclose" style="margin-right: 50px; width: 60px; height: 60px" type="image" src="~/images/class-plus.png" alt="Save" />
+                        }
+                                            }
+                                            <a id="boxclose2" style="width: 60px; height: 60px">
+                                                <img src="~/images/class-delete.png" style="width: 85px; height: 85px"
+                                                    alt="Cancel" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="span2" id="hero-orga"
+            style="margin-right: 45px; float: right; font-size: large;">
+            <div id="commentWrapper" style="width: 150px">
+                <div id="comment" style="width: 150px">
+                    <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                        <div style="text-align: center">
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2" id="activator" rel="popover"
+                                data-original-title="Visualisation des enseignants"
+                                data-content="Fenêtre de visualisation des différents enseignants référencés"
+                                href="~/enseignant/Visaenseignant">
+                                <img src="~/images/class-vis.png"
+                                    style="width: 50px; height: 50px" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2" id="activator2" rel="popover"
+                                data-original-title="Ajouter un enseignant"
+                                data-content="Fenêtre d'ajout d'un enseignant"
+                                href="~/enseignant/Create">
+                                <img src="~/images/class-plus.png"
+                                    style="width: 50px; height: 50px" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2" href="~/enseignant/Modifenseignant" id="activator1"
+                                rel="popover" data-original-title="Fenêtre de modification d'un enseignant"
+                                data-content="Fenêtre de suppression d'une enseignant">
+                                <img  src="~/images/class-mod.png" style="width: 50px; height: 50px"
+                                    alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-primary btn-large activator2" id="activator3" rel="popover"
+                                data-original-title="Confirmer la suppression"
+                                data-content="Permet de confirmer les suppressions des caractéristiques de l'enseignant séléctionné">
+                                <img src="~/images/class-delete.png" style="width: 50px; height: 50px"
+                                    alt="edit-profil" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

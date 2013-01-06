@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProjetAiopMVC.Models.SALLE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_SALLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BATIMENT.LIBELLE_BATIMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMERO_SALLE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_SALLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BATIMENT.LIBELLE_BATIMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMERO_SALLE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_SALLE/* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID_SALLE/* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_SALLE/* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

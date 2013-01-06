@@ -1,0 +1,50 @@
+﻿@model ProjetAiopMVC.Models.ENSEIGNANT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ENSEIGNANT</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ID_ENSEIGNANT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ID_ENSEIGNANT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NOM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NOM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PRENOM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRENOM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MDP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MDP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SUPER_USER)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SUPER_USER)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_ENSEIGNANT/* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

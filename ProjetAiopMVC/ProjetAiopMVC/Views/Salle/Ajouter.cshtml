@@ -1,0 +1,177 @@
+﻿@model ProjetAiopMVC.Models.SalleModels
+@{
+    ViewBag.Title = "Ajouter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+   <div id="container">
+    @using (Html.BeginForm("Ajouter", "Salle", new { this.Model }))
+    {
+        @Html.ValidationSummary(true)     
+
+        <div class="page-header">
+            <div id="alert_1">
+                <img src="~/images/class-plus.png" alt="User" />
+            </div>
+            <br />
+            <h1>Ajout d'une salle</h1>
+        </div>
+        <div class="overlay" id="overlay" style="display: none;"></div>
+        <div class="box" id="box">
+            <h3>Etes-vous sûr de valider les changements effectués ?</h3>
+            <br />
+            <div style="text-align: center">
+                <input id="boxclose" type="image" src="~/images/class-plus.png" style="width: 60px; height: 60px" />
+                <a id="boxclose2" style="width: 85px; height: 85px">
+                    <img src="~/images/class-delete.png" style="width: 85px; height: 85px" alt="Cancel" />
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="span5" style="margin-left: 45px; width: 33%">
+                    <div class="hero-unit" style="height: 305px">
+                        <table style="width: 100%">
+                            <tbody>
+                                <tr style="height: 15px"></tr>
+                                <tr>
+                                    <td>
+                                        <img src="~/images/armo.png" alt="User" style="width: 50px; height: 50px" /></td>
+                                    <td>
+                                        <h3>Information d'ajout</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><em>Veuillez completer ci-contre les informations pour
+										l'ajout d'une salle. La caractérisation du nom de la salle et
+										du batiment est obligatoire. Pour l'ajout d'une
+										caractérisation veuillez cliquer sur l'icone "ajout
+										caractéristique" et indiqué le nom et la caractérisation. Si
+										le nom de la salle est déjà référencé, la confirmation vous
+										indiquera une erreur.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="span6 offset1">
+                    <div class="hero-unit" style="height: 305px">
+                        <table style="width: 100%">
+                            <tbody>
+                                <tr style="height: 50px">
+                                    <td>
+                                        <img src="~/images/armo3.png" alt="User" style="width: 50px; height: 50px" /></td>
+                                    <td>
+                                        <h3>Informations de la salle</h3>
+                                    </td>
+                                </tr>
+                                <tr style="height: 35px">
+                                    <td>
+                                        <h5>
+                                            <b>Nom</b>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(model => model.SALLE.NUMERO_SALLE)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td style="color: red">@Html.ValidationMessageFor(model => model.SALLE.NUMERO_SALLE)</td>
+                                </tr>
+                                <tr style="height: 45px">
+                                    <td>
+                                        <h5>
+                                            <b>Batiment</b>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.SALLE.ID_BATIMENT, (SelectList)ViewBag.SELECTLIST_BATIMENT, string.Empty)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td style="color: red">@Html.ValidationMessageFor(model => model.SALLE.ID_BATIMENT)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>
+                                            <b>Caractéristique(s) :</b>
+                                        </h5>
+                                    </td>
+                                    <!--
+									<td><div style="text-align: center">
+											<a id="activator4" class="btn-small btn-inverse"><img
+												src="~/images/cara-plus.png" width="20" height="20" alt="User" /></a>
+										</div></td>
+                                    -->
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-striped" style="max-height: 150px; background-size: 100% 100%; overflow: auto; border: 1px solid #000000;">
+                            <tbody>
+                                <tr>
+                                    <td>Caractéristique1</td>
+                                    <td>@Html.DropDownListFor(model => model.ID_CAR_1, (SelectList)ViewBag.SELECTLIST_CARACTERISTIQUE, String.Empty)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Caractéristique2</td>
+                                    <td>@Html.DropDownListFor(model => model.ID_CAR_2, (SelectList)ViewBag.SELECTLIST_CARACTERISTIQUE, String.Empty)
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Caractéristique3</td>
+                                    <td>@Html.DropDownListFor(model => model.ID_CAR_3, (SelectList)ViewBag.SELECTLIST_CARACTERISTIQUE, String.Empty)
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="span2" id="hero-orga" style="margin-right: 45px; float: right; font-size: large;">
+                    <div id="commentWrapper" style="width: 150px">
+                        <div id="comment" style="width: 150px">
+                            <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                                <div style="text-align: center">
+                                    <br />
+                                    <br />
+                                    <a class="btn btn-inverse btn-large activator2" id="activator" rel="popover"
+                                        data-original-title="Visualisation des salles"
+                                        data-content="Fenêtre de visualisation des différentes salles référencées"
+                                        href="Detaille">
+                                        <img src="~/images/class-vis.png" style="width: 50px; height: 50px;" alt="edit-profil" />
+                                    </a>
+                                    <br />
+                                    <br />
+                                    <a class="btn btn-inverse btn-large activator2" id="activator2" rel="popover"
+                                        data-original-title="Modifier une salle"
+                                        data-content="Fenêtre de modification d'une salle d'une salle"
+                                        href="Modifier">
+                                        <img src="~/images/class-mod.png" style="width: 50px; height: 50px;" alt="edit-profil" />
+                                    </a>
+                                    <br />
+                                    <br />
+                                    <a class="btn btn-inverse btn-large activator2" href="Supprimer" id="activator1"
+                                        rel="popover" data-original-title="Supprimer la salle"
+                                        data-content="Fenêtre de suppression d'une salle">
+                                        <img src="~/images/class-delete.png" style="width: 50px; height: 50px;" alt="edit-profil" />
+                                    </a>
+                                    <br />
+                                    <br />
+                                    <a class="btn btn-primary btn-large activator2" id="activator3" rel="popover" data-original-title="Confirmer l'ajout"
+                                        data-content="Permet d'ajouter la salle que vous avez identifier">
+                                        <img src="~/images/class-plus.png" style="width: 50px; height: 50px;" alt="edit-profil" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+  </div>

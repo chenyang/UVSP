@@ -1,0 +1,197 @@
+﻿@{
+    ViewBag.Title = "MesReservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @model ProjetAiopMVC.Models.ReservationModels
+}
+
+
+@{
+    ViewBag.Title = "Mes Reservations";
+}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>UVSP-Web</title>
+<script type='text/javascript' src='../javascripts/jquery-1.7.2.min.js'></script>
+<script type='text/javascript'
+	src='../javascripts/jquery.tablesorter.min.js'></script>
+<script type='text/javascript'
+	src='../javascripts/jquery.tablesorter.min.js'></script>
+<script type='text/javascript' src='../javascripts/bootstrap.min.js'></script>
+<script type='text/javascript' src='../javascripts/bootstrap-tab.js'></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('#orgaTabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>
+
+<link rel='stylesheet' type='text/css'
+	href='../stylesheets/bootstrap.min.css' />
+<link rel='stylesheet' type='text/css' href='../stylesheets/asa.css' />
+
+</head>
+
+<body>
+	<div id="container">
+		<div class="page-header">
+			<div id="alert_1">
+				<img src="../images/file.png" width="100" height="100"
+					alt="User" />
+			</div>
+			<br />
+			<h1>Visualisation de mes reservations</h1>
+		</div>
+		<div class="row">
+			<div class="container-fluid">
+				<div class="span12" style="margin-left: 45px">
+
+
+					<ul class="nav nav-tabs" id="myTab">
+						<li class="active"><a href="#va">Validée</a></li>
+						<li><a href="#ea">En attente</a></li>
+						<li><a href="#re">Refusée</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div class="tab-pane active" id="va">
+							<table class="table table-striped" width="100%">
+								<tbody>
+									<tr>
+										<td>Salle</td>
+										<td>Créneau</td>
+										<td>Enseignement</td>
+										<td>Date de réservation</td>
+									</tr>
+
+                                    @{
+                                   
+                                        for(int i=0; i<Model.reservations_valides.Count(); i++)
+                                        {
+                                        
+                                            <tr>
+										        <td>@Html.DisplayFor(model=>model.reservations_valides.ElementAt(i).SALLE.NUMERO_SALLE)</td>
+										        <td>@Html.DisplayFor(model=>model.reservations_valides.ElementAt(i).CRENAUX.HEURE_DEBUT_AND_HEURE_FIN)</td>
+										        <td>@Html.DisplayFor(model=>model.reservations_valides.ElementAt(i).ENSEIGNEMENT.DESCRIPTION_ENSEIGNEMENT)</td>
+										        <td>@{
+                                                       Model.reservations_valides.ElementAt(i).DATE_STRING = Model.reservations_valides.ElementAt(i).DATE_RESERVATION.ToString("dd/MM/yyyy");
+                                                    }
+                                                    @Html.DisplayFor(model=>model.reservations_valides.ElementAt(i).DATE_STRING)</td>
+									        </tr>
+                                        
+                                        }
+                                        
+                                    }
+
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane" id="ea">
+							<table class="table table-striped" width="100%">
+								<tbody>
+									<tr>
+										<td>Salle</td>
+										<td>Créneau</td>
+										<td>Enseignement</td>
+										<td>Date de réservation</td>
+									</tr>
+									@{
+                                   
+                                        for(int i=0; i<Model.reservations_enattentes.Count(); i++)
+                                        {
+                                        
+                                            <tr>
+										        <td>@Html.DisplayFor(model=>model.reservations_enattentes.ElementAt(i).SALLE.NUMERO_SALLE)</td>
+										        <td>@Html.DisplayFor(model=>model.reservations_enattentes.ElementAt(i).CRENAUX.HEURE_DEBUT_AND_HEURE_FIN)</td>
+										        <td>@Html.DisplayFor(model=>model.reservations_enattentes.ElementAt(i).ENSEIGNEMENT.DESCRIPTION_ENSEIGNEMENT)</td>
+										        <td>
+                                                    @{
+                                                        Model.reservations_enattentes.ElementAt(i).DATE_STRING = Model.reservations_enattentes.ElementAt(i).DATE_RESERVATION.ToString("dd/MM/yyyy");
+                                                    }
+                                                    @Html.DisplayFor(model=>model.reservations_enattentes.ElementAt(i).DATE_STRING)
+
+										        </td>
+									        </tr>
+                                        
+                                        }
+                                    }
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane" id="re">
+							<table class="table table-striped" width="100%">
+								<tbody>
+									<tr>
+										<td>Salle</td>
+										<td>Créneau</td>
+										<td>Enseignement</td>
+										<td>Date de réservation</td>
+									</tr>
+									@{
+                                   
+                                        for(int i=0; i<Model.reservations_refuses.Count(); i++)
+                                        {
+                                        
+                                            <tr>
+										        <td>@Html.DisplayFor(model=>model.reservations_refuses.ElementAt(i).SALLE.NUMERO_SALLE)</td>
+										        <td>@Html.DisplayFor(model=>model.reservations_refuses.ElementAt(i).CRENAUX.HEURE_DEBUT_AND_HEURE_FIN)</td>
+										        <td>@Html.DisplayFor(model=>model.reservations_refuses.ElementAt(i).ENSEIGNEMENT.DESCRIPTION_ENSEIGNEMENT)</td>
+										        <td>
+                                                     @{
+                                            Model.reservations_refuses.ElementAt(i).DATE_STRING = Model.reservations_refuses.ElementAt(i).DATE_RESERVATION.ToString("dd/MM/yyyy");
+                                                    }
+                                                    @Html.DisplayFor(model=>model.reservations_refuses.ElementAt(i).DATE_STRING)
+
+										        </td>
+									        </tr>
+                                        
+                                        }
+                                        
+                                    }
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+				</div>
+				<div class="span2" id="hero-orga"
+					style="margin-right: 45px; float: right; font-size: large;">
+					<div id="commentWrapper" style="width: 150px">
+						<div id="comment" style="width: 150px">
+							<div class="breadcrumb-orga" style="width: 150px; height: 425px">
+								<div style="text-align: center">
+									<br /> <br /> <a class="btn btn-inverse btn-large"
+										class="activator2" id="activator" rel="popover"
+										data-original-title="Soumettre une reservation"
+										data-content="Fenêtre de soumission de reservation"
+										href="./Ajouter"> <img
+										src="../images/class-plus.png" width="50" height="50"
+										alt="edit-profil" />
+									</a> <br /> <br /> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	    $(function () {
+	        $('#activator').popover({
+	            placement: 'left'
+	        });
+	        $('#myTab a').click(function (e) {
+	            e.preventDefault();
+	            $(this).tab('show');
+	        })
+
+	    });
+	</script>
+</body>

@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "EDT";
+    string edt = (string)ViewData["EDT"];
+
+}
+
+<div class="page-header">
+    <div id="alert_1">
+        <img src="~/images/file.png" width="100" height="100" alt="User" />
+    </div>
+    <br />
+    <h1>Mon emploi du temps</h1>
+</div>
+<div class="row">
+    <div class="span12" style="margin-left: 70px">
+        <div class="container-fluid" id="hero-home-calendar">
+            <div id='calendar'></div>
+        </div>
+    </div>
+    <div class="span2" id="hero-orga"
+        style="margin-right: 45px; margin-left: -50px; float: right; font-size: large;">
+        <div id="commentWrapper" style="width: 150px">
+            <div id="comment" style="width: 150px">
+                <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                    <div style="text-align: center">
+                        <h2>Liste des ressourses</h2>
+                        <div class="accordion" id="accordion">
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <h3>Enseignants</h3>
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="accordion-body collapse out">
+                                    <div class="accordion-inner">
+                                                                                @Html.DropDownList("Enseignantss", ViewData["Enseignantss"] as SelectList,
+                                        "Sélectionner un enseignant",
+                                        new
+                                        {
+                                            onchange = "redirect(this.value)",
+                                            style = "width: 110px"
+                                        }
+                                        )
+
+                                    </div>
+                                </div>
+                                <div id="collapseOne1" class="accordion-body collapse out">
+                                    <div class="accordion-inner">
+                                       
+                                    </div>
+                                <div id="collapseOne2" class="accordion-body collapse out">
+                                    <div class="accordion-inner">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src="~/Scripts/fullcalendar/fullcalendar.min.js"></script>
+<script type='text/javascript' src="~/Scripts/fullcalendar/gcal.js"></script>
+<link rel='stylesheet' type='text/css' href="~/Scripts/fullcalendar/fullcalendar.print.css" media="print"/>
+<link rel='stylesheet' type='text/css' href="~/Scripts/fullcalendar/fullcalendar.css" />
+<script type='text/javascript'>
+    $(document).ready(function () {
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar(@Html.Raw(edt))
+
+    });
+
+    function redirect(dropDownValue) {
+        window.location.href = '/Edt/Index/' + dropDownValue;
+    }
+</script>
+

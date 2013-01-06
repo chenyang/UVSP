@@ -1,0 +1,227 @@
+﻿@model IEnumerable<ProjetAiopMVC.Models.ENSEIGNANT>
+
+@{
+    ViewBag.Title = "Visaenseignant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    // Ici ce trouve le code permettant de charger les informations d'un enseignant si il est connu
+    string currentNomEnseignant = "test";
+    string currentPrenomEnseignant = "test";
+    string currentLogin = "test";
+    // string currentSuperUtilisateurEnseignant = "test";
+    if (ViewBag.numeroEnseignant != 0)
+    {
+        foreach (var item in Model)
+        {
+            if (item.ID_ENSEIGNANT == ViewBag.numeroEnseignant)
+            {
+                currentNomEnseignant = item.NOM;
+                currentPrenomEnseignant = item.PRENOM;
+                currentLogin = item.LOGIN;
+                //if (item.SUPER_USER == 0)
+                //{
+                //    currentSuperUtilisateurEnseignant = "super-utilisateur";
+                //}
+                //else
+                //{
+                //    currentSuperUtilisateurEnseignant = "Enseignant";
+                //}
+            }
+        }
+    }
+}
+
+
+<div class="page-header">
+    <div id="alert_1">
+        <img src="~/images/user-info.png" alt="User" />
+    </div>
+    <br />
+    <h1>Visualisation des enseignants</h1>
+</div>
+<div class="row">
+    <div class="container-fluid">
+        <div class="span5" style="margin-left: 45px; width: 33%">
+            <div class="hero-unit" style="height: 305px">
+                <table style="width: 300px;">
+                    <tbody>
+                        <tr style="height: 15px"></tr>
+                        <tr>
+                            <td>
+                                <img src="~/images/ens-sear.png" style="width: 50px; height: 50px"
+                                    alt="User" /></td>
+                            <td>
+                                <h3>Sélectionner un enseignant</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <ul style="height: 200px; background-size: 100% 100%; overflow: auto; border: 1px solid #000000; background-color: white">
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                            if (i % 2 == 0)
+                                            {
+                                        <li style="margin-left: 5px">@Html.ActionLink(item.NOM, "Visaenseignant", new { id = item.ID_ENSEIGNANT })</li>
+                                         
+                                            }
+                                            else
+                                            {
+                                        <li style="margin-left: 5px; background-color: #F0F0F0">@Html.ActionLink(item.NOM, "Visaenseignant", new { id = item.ID_ENSEIGNANT })</li>
+                                      
+                                            }
+                                        }
+                                    }
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="span6 offset1">
+            <div class="hero-unit" style="height: 305px;">
+                <table style="margin-top: 15px; width: 100%" class="table-striped">
+                    <tbody>
+                        <tr></tr>
+                        <tr style="height: 50px">
+                            <td style="width: 33%">
+                                <img src="~/images/user-1.png" width="50" height="50"
+                                    alt="User" /></td>
+                            <td>
+                                <h3>Caractéristiques</h3>
+                            </td>
+                        </tr>
+                        <tr style="height: 35px">
+                            <td>
+                                <h5>
+                                    <b>Prenom</b>
+                                </h5>
+                            </td>
+                            <td>@{
+                                if (ViewBag.numeroEnseignant == 0)
+                                {
+                                @:Veuillez sélectionner un enseignant
+                                }
+                                else
+                                {
+                                @currentPrenomEnseignant
+                                }
+                            }
+                            </td>
+                        </tr>
+                        <tr style="height:35px">
+                            <td>
+                                <h5>
+                                    <b>Nom</b>
+                                </h5>
+                            </td>
+                            <td>@{
+                                if (ViewBag.numeroEnseignant == 0)
+                                {
+                                @:Veuillez sélectionner un enseignant
+                                }
+                                else
+                                {
+                                @currentNomEnseignant
+                                }
+                            }</td>
+                        </tr>
+                        <tr style="height:35px">
+                            <td>
+                                <h5>
+                                    <b>Login</b>
+                                </h5>
+                            </td>
+                            <td>@{
+                                if (ViewBag.numeroEnseignant == 0)
+                                {
+                                @:Veuillez sélectionner un enseignant
+                                }
+                                else
+                                {
+                                @currentLogin
+                                }
+                            }
+
+                            </td>
+                        </tr>
+                        <tr style="height:35px">
+                            <td>
+                                <h5>
+                                    <b>Profil utilisateur</b>
+                                </h5>
+                            </td>
+                            <td>@{
+                                if (ViewBag.numeroEnseignant == 0)
+                                {
+                                @:Veuillez sélectionner un enseignant
+                                }
+                                else
+                                {
+                                    string[] users;
+                                    users = Roles.FindUsersInRole("Super_user", @currentLogin);
+                                    if (users != null)
+                                    {
+                                        if (users.Length <= 0)
+                                        {
+                                @: enseignant
+                                        }
+                                        else
+                                        {
+                                @: Administrateur 
+                                        }
+
+                                    }// fin du if null
+                                    //@currentSuperUtilisateurEnseignant
+                                }
+                            }</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="span2" id="hero-orga"
+            style="margin-right: 45px; float: right; font-size: large;">
+            <div id="commentWrapper" style="width: 150px">
+                <div id="comment" style="width: 150px">
+                    <div class="breadcrumb-orga" style="width: 150px; height: 425px">
+                        <div style="text-align: center">
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2"
+                                id="activator" rel="popover"
+                                data-original-title="Ajouter un enseignant"
+                                data-content="Fenêtre d'ajout d'un enseignant"
+                                href="/enseignant/Create">
+                                <img src="~/images/class-plus.png"
+                                    width="50" height="50" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2" id="activator2" rel="popover"
+                                data-original-title="Modifier un enseignant"
+                                data-content="Fenêtre de modification d'un enseignant"
+                                href="/enseignant/modifenseignant">
+                                <img src="~/images/class-mod.png"
+                                    width="50" height="50" alt="edit-profil" />
+                            </a>
+                            <br />
+                            <br />
+                            <a class="btn btn-inverse btn-large activator2" href="/enseignant/supenseignant" id="activator1"
+                                rel="popover" data-original-title="Supprimer l'enseignant"
+                                data-content="Fenêtre de suppression d'un enseignant">
+                                <img src="~/images/class-delete.png" width="50" height="50" alt="edit-profil" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

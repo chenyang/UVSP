@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AIOPDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="AIOPDBModelStoreContainer">
+          <EntitySet Name="ANNEEETUDE" EntityType="AIOPDBModel.Store.ANNEEETUDE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BATIMENT" EntityType="AIOPDBModel.Store.BATIMENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CARACTERISTIQUE" EntityType="AIOPDBModel.Store.CARACTERISTIQUE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CARACTERISTIQUE_SALLE" EntityType="AIOPDBModel.Store.CARACTERISTIQUE_SALLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="COURS" EntityType="AIOPDBModel.Store.COURS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CRENAUX" EntityType="AIOPDBModel.Store.CRENAUX" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ENSEIGNANT" EntityType="AIOPDBModel.Store.ENSEIGNANT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ENSEIGNEMENT" EntityType="AIOPDBModel.Store.ENSEIGNEMENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GROUPE" EntityType="AIOPDBModel.Store.GROUPE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MATIERE" EntityType="AIOPDBModel.Store.MATIERE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RESERVATION" EntityType="AIOPDBModel.Store.RESERVATION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RESERVATION_CARACTERISTIQUE" EntityType="AIOPDBModel.Store.RESERVATION_CARACTERISTIQUE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SALLE" EntityType="AIOPDBModel.Store.SALLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SEMESTRE" EntityType="AIOPDBModel.Store.SEMESTRE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TYPECOURS" EntityType="AIOPDBModel.Store.TYPECOURS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UE" EntityType="AIOPDBModel.Store.UE" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CARACTERISTIQUE_SALLE_CARAC" Association="AIOPDBModel.Store.FK_CARACTERISTIQUE_SALLE_CARAC">
+            <End Role="CARACTERISTIQUE" EntitySet="CARACTERISTIQUE" />
+            <End Role="CARACTERISTIQUE_SALLE" EntitySet="CARACTERISTIQUE_SALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CARACTERISTIQUE_SALLE_SALLE" Association="AIOPDBModel.Store.FK_CARACTERISTIQUE_SALLE_SALLE">
+            <End Role="SALLE" EntitySet="SALLE" />
+            <End Role="CARACTERISTIQUE_SALLE" EntitySet="CARACTERISTIQUE_SALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COURS_MATIERE" Association="AIOPDBModel.Store.FK_COURS_MATIERE">
+            <End Role="MATIERE" EntitySet="MATIERE" />
+            <End Role="COURS" EntitySet="COURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COURS_TYPECOURS" Association="AIOPDBModel.Store.FK_COURS_TYPECOURS">
+            <End Role="TYPECOURS" EntitySet="TYPECOURS" />
+            <End Role="COURS" EntitySet="COURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENSEIGNEMENT_COURS" Association="AIOPDBModel.Store.FK_ENSEIGNEMENT_COURS">
+            <End Role="COURS" EntitySet="COURS" />
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENSEIGNEMENT_ENSEIGNANT" Association="AIOPDBModel.Store.FK_ENSEIGNEMENT_ENSEIGNANT">
+            <End Role="ENSEIGNANT" EntitySet="ENSEIGNANT" />
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENSEIGNEMENT_GROUPE" Association="AIOPDBModel.Store.FK_ENSEIGNEMENT_GROUPE">
+            <End Role="GROUPE" EntitySet="GROUPE" />
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPE_GROUPE" Association="AIOPDBModel.Store.FK_GROUPE_GROUPE">
+            <End Role="GROUPE" EntitySet="GROUPE" />
+            <End Role="GROUPE1" EntitySet="GROUPE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATIERE_ENSEIGNANT" Association="AIOPDBModel.Store.FK_MATIERE_ENSEIGNANT">
+            <End Role="ENSEIGNANT" EntitySet="ENSEIGNANT" />
+            <End Role="MATIERE" EntitySet="MATIERE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATIERE_UE" Association="AIOPDBModel.Store.FK_MATIERE_UE">
+            <End Role="UE" EntitySet="UE" />
+            <End Role="MATIERE" EntitySet="MATIERE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_CARACTERISTIQU1" Association="AIOPDBModel.Store.FK_RESERVATION_CARACTERISTIQU1">
+            <End Role="RESERVATION" EntitySet="RESERVATION" />
+            <End Role="RESERVATION_CARACTERISTIQUE" EntitySet="RESERVATION_CARACTERISTIQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_CARACTERISTIQUE" Association="AIOPDBModel.Store.FK_RESERVATION_CARACTERISTIQUE">
+            <End Role="CARACTERISTIQUE" EntitySet="CARACTERISTIQUE" />
+            <End Role="RESERVATION_CARACTERISTIQUE" EntitySet="RESERVATION_CARACTERISTIQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_CRENAUX" Association="AIOPDBModel.Store.FK_RESERVATION_CRENAUX">
+            <End Role="CRENAUX" EntitySet="CRENAUX" />
+            <End Role="RESERVATION" EntitySet="RESERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_ENSEIGNEMENT" Association="AIOPDBModel.Store.FK_RESERVATION_ENSEIGNEMENT">
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENT" />
+            <End Role="RESERVATION" EntitySet="RESERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_SALLE" Association="AIOPDBModel.Store.FK_RESERVATION_SALLE">
+            <End Role="SALLE" EntitySet="SALLE" />
+            <End Role="RESERVATION" EntitySet="RESERVATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALLE_BATIMENT" Association="AIOPDBModel.Store.FK_SALLE_BATIMENT">
+            <End Role="BATIMENT" EntitySet="BATIMENT" />
+            <End Role="SALLE" EntitySet="SALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UE_ENSEIGNANT" Association="AIOPDBModel.Store.FK_UE_ENSEIGNANT">
+            <End Role="ENSEIGNANT" EntitySet="ENSEIGNANT" />
+            <End Role="UE" EntitySet="UE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ANNEEETUDE">
+          <Key>
+            <PropertyRef Name="ID_ANNEEETUDE" />
+          </Key>
+          <Property Name="ID_ANNEEETUDE" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION_ANNEEETUDE" Type="nvarchar" MaxLength="50" />
+          <Property Name="LIBELLE_ANNEEETUDE" Type="nvarchar" MaxLength="5" />
+          <Property Name="DUREESEANCE_ANNEEETUDE" Type="real" />
+          <Property Name="NBSEANCEAM_ANNEEETUDE" Type="int" />
+          <Property Name="NBSEANCEPM_ANNEEETUDE" Type="int" />
+        </EntityType>
+        <EntityType Name="BATIMENT">
+          <Key>
+            <PropertyRef Name="ID_BATIMENT" />
+          </Key>
+          <Property Name="ID_BATIMENT" Type="int" Nullable="false" />
+          <Property Name="LIBELLE_BATIMENT" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CARACTERISTIQUE">
+          <Key>
+            <PropertyRef Name="ID_CARACTERISTIQUE" />
+          </Key>
+          <Property Name="ID_CARACTERISTIQUE" Type="int" Nullable="false" />
+          <Property Name="LIBELLE_CARACTERISTIQUE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CARACTERISTIQUE_SALLE">
+          <Key>
+            <PropertyRef Name="ID_SALLE" />
+            <PropertyRef Name="ID_CARACTERISTIQUE" />
+          </Key>
+          <Property Name="ID_SALLE" Type="int" Nullable="false" />
+          <Property Name="ID_CARACTERISTIQUE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COURS">
+          <Key>
+            <PropertyRef Name="ID_COURS" />
+          </Key>
+          <Property Name="ID_COURS" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MATIERE" Type="int" />
+          <Property Name="ID_TYPE_DE_COURS" Type="int" />
+          <Property Name="LIBELLE_COURS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CRENAUX">
+          <Key>
+            <PropertyRef Name="ID_CRENEAU" />
+          </Key>
+          <Property Name="ID_CRENEAU" Type="int" Nullable="false" />
+          <Property Name="HEURE_DEBUT" Type="nvarchar" MaxLength="50" />
+          <Property Name="HEURE_FIN" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ENSEIGNANT">
+          <Key>
+            <PropertyRef Name="ID_ENSEIGNANT" />
+          </Key>
+          <Property Name="ID_ENSEIGNANT" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRENOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOGIN" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ENSEIGNEMENT">
+          <Key>
+            <PropertyRef Name="ID_ENSEIGNEMENT" />
+          </Key>
+          <Property Name="ID_ENSEIGNEMENT" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_COURS" Type="int" />
+          <Property Name="ID_ENSEIGNANT" Type="int" />
+          <Property Name="ID_GROUPE" Type="int" />
+          <Property Name="NB_HEURE_PREVUE" Type="int" />
+        </EntityType>
+        <EntityType Name="GROUPE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE" />
+          </Key>
+          <Property Name="ID_GROUPE" Type="int" Nullable="false" />
+          <Property Name="ID_GROUPE_A_POUR_PERE" Type="int" />
+          <Property Name="LIBELLE_GROUPE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MATIERE">
+          <Key>
+            <PropertyRef Name="ID_MATIERE" />
+          </Key>
+          <Property Name="ID_MATIERE" Type="int" Nullable="false" />
+          <Property Name="ID_UE" Type="int" />
+          <Property Name="ID_ENSEIGNANT" Type="int" />
+          <Property Name="LIBELLE_MATIERE" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="RESERVATION">
+          <Key>
+            <PropertyRef Name="ID_RESERVATION" />
+          </Key>
+          <Property Name="ID_RESERVATION" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SALLE" Type="int" Nullable="false" />
+          <Property Name="ID_CRENEAU" Type="int" Nullable="false" />
+          <Property Name="ID_ENSEIGNEMENT" Type="int" Nullable="false" />
+          <Property Name="DATE_RESERVATION" Type="date" Nullable="false" />
+          <Property Name="STATUS" Type="int" />
+        </EntityType>
+        <EntityType Name="RESERVATION_CARACTERISTIQUE">
+          <Key>
+            <PropertyRef Name="ID_CARACTERISTIQUE" />
+            <PropertyRef Name="ID_RESERVATION" />
+          </Key>
+          <Property Name="ID_CARACTERISTIQUE" Type="int" Nullable="false" />
+          <Property Name="ID_RESERVATION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALLE">
+          <Key>
+            <PropertyRef Name="ID_SALLE" />
+          </Key>
+          <Property Name="ID_SALLE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_BATIMENT" Type="int" />
+          <Property Name="NUMERO_SALLE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SEMESTRE">
+          <Key>
+            <PropertyRef Name="ID_SEMESTRE" />
+          </Key>
+          <Property Name="ID_SEMESTRE" Type="int" Nullable="false" />
+          <Property Name="LIBELLE_SEMESTRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="NIVEAU_SEMESTRE" Type="int" />
+          <Property Name="ID_ANNEEETUDE" Type="int" />
+        </EntityType>
+        <EntityType Name="TYPECOURS">
+          <Key>
+            <PropertyRef Name="ID_TYPE_DE_COURS" />
+          </Key>
+          <Property Name="ID_TYPE_DE_COURS" Type="int" Nullable="false" />
+          <Property Name="LIBELLE_TYPE_DE_COURS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UE">
+          <Key>
+            <PropertyRef Name="ID_UE" />
+          </Key>
+          <Property Name="ID_UE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LIBELLE_UE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_ENSEIGNANT" Type="int" />
+          <Property Name="ID_SEMESTRE" Type="int" />
+        </EntityType>
+        <Association Name="FK_CARACTERISTIQUE_SALLE_CARAC">
+          <End Role="CARACTERISTIQUE" Type="AIOPDBModel.Store.CARACTERISTIQUE" Multiplicity="1" />
+          <End Role="CARACTERISTIQUE_SALLE" Type="AIOPDBModel.Store.CARACTERISTIQUE_SALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARACTERISTIQUE">
+              <PropertyRef Name="ID_CARACTERISTIQUE" />
+            </Principal>
+            <Dependent Role="CARACTERISTIQUE_SALLE">
+              <PropertyRef Name="ID_CARACTERISTIQUE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CARACTERISTIQUE_SALLE_SALLE">
+          <End Role="SALLE" Type="AIOPDBModel.Store.SALLE" Multiplicity="1" />
+          <End Role="CARACTERISTIQUE_SALLE" Type="AIOPDBModel.Store.CARACTERISTIQUE_SALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALLE">
+              <PropertyRef Name="ID_SALLE" />
+            </Principal>
+            <Dependent Role="CARACTERISTIQUE_SALLE">
+              <PropertyRef Name="ID_SALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COURS_MATIERE">
+          <End Role="MATIERE" Type="AIOPDBModel.Store.MATIERE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="COURS" Type="AIOPDBModel.Store.COURS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATIERE">
+              <PropertyRef Name="ID_MATIERE" />
+            </Principal>
+            <Dependent Role="COURS">
+              <PropertyRef Name="ID_MATIERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COURS_TYPECOURS">
+          <End Role="TYPECOURS" Type="AIOPDBModel.Store.TYPECOURS" Multiplicity="0..1" />
+          <End Role="COURS" Type="AIOPDBModel.Store.COURS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPECOURS">
+              <PropertyRef Name="ID_TYPE_DE_COURS" />
+            </Principal>
+            <Dependent Role="COURS">
+              <PropertyRef Name="ID_TYPE_DE_COURS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENSEIGNEMENT_COURS">
+          <End Role="COURS" Type="AIOPDBModel.Store.COURS" Multiplicity="0..1" />
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.Store.ENSEIGNEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COURS">
+              <PropertyRef Name="ID_COURS" />
+            </Principal>
+            <Dependent Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_COURS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENSEIGNEMENT_ENSEIGNANT">
+          <End Role="ENSEIGNANT" Type="AIOPDBModel.Store.ENSEIGNANT" Multiplicity="0..1" />
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.Store.ENSEIGNEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNANT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Principal>
+            <Dependent Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENSEIGNEMENT_GROUPE">
+          <End Role="GROUPE" Type="AIOPDBModel.Store.GROUPE" Multiplicity="0..1" />
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.Store.ENSEIGNEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPE">
+              <PropertyRef Name="ID_GROUPE" />
+            </Principal>
+            <Dependent Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_GROUPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPE_GROUPE">
+          <End Role="GROUPE" Type="AIOPDBModel.Store.GROUPE" Multiplicity="0..1" />
+          <End Role="GROUPE1" Type="AIOPDBModel.Store.GROUPE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPE">
+              <PropertyRef Name="ID_GROUPE" />
+            </Principal>
+            <Dependent Role="GROUPE1">
+              <PropertyRef Name="ID_GROUPE_A_POUR_PERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATIERE_ENSEIGNANT">
+          <End Role="ENSEIGNANT" Type="AIOPDBModel.Store.ENSEIGNANT" Multiplicity="0..1" />
+          <End Role="MATIERE" Type="AIOPDBModel.Store.MATIERE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNANT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Principal>
+            <Dependent Role="MATIERE">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATIERE_UE">
+          <End Role="UE" Type="AIOPDBModel.Store.UE" Multiplicity="0..1" />
+          <End Role="MATIERE" Type="AIOPDBModel.Store.MATIERE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UE">
+              <PropertyRef Name="ID_UE" />
+            </Principal>
+            <Dependent Role="MATIERE">
+              <PropertyRef Name="ID_UE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_CARACTERISTIQU1">
+          <End Role="RESERVATION" Type="AIOPDBModel.Store.RESERVATION" Multiplicity="1" />
+          <End Role="RESERVATION_CARACTERISTIQUE" Type="AIOPDBModel.Store.RESERVATION_CARACTERISTIQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVATION">
+              <PropertyRef Name="ID_RESERVATION" />
+            </Principal>
+            <Dependent Role="RESERVATION_CARACTERISTIQUE">
+              <PropertyRef Name="ID_RESERVATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_CARACTERISTIQUE">
+          <End Role="CARACTERISTIQUE" Type="AIOPDBModel.Store.CARACTERISTIQUE" Multiplicity="1" />
+          <End Role="RESERVATION_CARACTERISTIQUE" Type="AIOPDBModel.Store.RESERVATION_CARACTERISTIQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARACTERISTIQUE">
+              <PropertyRef Name="ID_CARACTERISTIQUE" />
+            </Principal>
+            <Dependent Role="RESERVATION_CARACTERISTIQUE">
+              <PropertyRef Name="ID_CARACTERISTIQUE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_CRENAUX">
+          <End Role="CRENAUX" Type="AIOPDBModel.Store.CRENAUX" Multiplicity="1" />
+          <End Role="RESERVATION" Type="AIOPDBModel.Store.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRENAUX">
+              <PropertyRef Name="ID_CRENEAU" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_CRENEAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_ENSEIGNEMENT">
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.Store.ENSEIGNEMENT" Multiplicity="1" />
+          <End Role="RESERVATION" Type="AIOPDBModel.Store.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_ENSEIGNEMENT" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_ENSEIGNEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_SALLE">
+          <End Role="SALLE" Type="AIOPDBModel.Store.SALLE" Multiplicity="1" />
+          <End Role="RESERVATION" Type="AIOPDBModel.Store.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALLE">
+              <PropertyRef Name="ID_SALLE" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_SALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALLE_BATIMENT">
+          <End Role="BATIMENT" Type="AIOPDBModel.Store.BATIMENT" Multiplicity="0..1" />
+          <End Role="SALLE" Type="AIOPDBModel.Store.SALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BATIMENT">
+              <PropertyRef Name="ID_BATIMENT" />
+            </Principal>
+            <Dependent Role="SALLE">
+              <PropertyRef Name="ID_BATIMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UE_ENSEIGNANT">
+          <End Role="ENSEIGNANT" Type="AIOPDBModel.Store.ENSEIGNANT" Multiplicity="0..1" />
+          <End Role="UE" Type="AIOPDBModel.Store.UE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNANT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Principal>
+            <Dependent Role="UE">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AIOPDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AIOPContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ANNEEETUDEs" EntityType="AIOPDBModel.ANNEEETUDE" />
+          <EntitySet Name="BATIMENTs" EntityType="AIOPDBModel.BATIMENT" />
+          <EntitySet Name="CARACTERISTIQUEs" EntityType="AIOPDBModel.CARACTERISTIQUE" />
+          <EntitySet Name="COURS" EntityType="AIOPDBModel.COUR" />
+          <EntitySet Name="CRENAUXes" EntityType="AIOPDBModel.CRENAUX" />
+          <EntitySet Name="ENSEIGNANTs" EntityType="AIOPDBModel.ENSEIGNANT" />
+          <EntitySet Name="ENSEIGNEMENTs" EntityType="AIOPDBModel.ENSEIGNEMENT" />
+          <EntitySet Name="GROUPEs" EntityType="AIOPDBModel.GROUPE" />
+          <EntitySet Name="MATIEREs" EntityType="AIOPDBModel.MATIERE" />
+          <EntitySet Name="RESERVATIONs" EntityType="AIOPDBModel.RESERVATION" />
+          <EntitySet Name="SALLEs" EntityType="AIOPDBModel.SALLE" />
+          <EntitySet Name="SEMESTREs" EntityType="AIOPDBModel.SEMESTRE" />
+          <EntitySet Name="TYPECOURS" EntityType="AIOPDBModel.TYPECOUR" />
+          <EntitySet Name="UEs" EntityType="AIOPDBModel.UE" />
+          <AssociationSet Name="FK_SALLE_BATIMENT" Association="AIOPDBModel.FK_SALLE_BATIMENT">
+            <End Role="BATIMENT" EntitySet="BATIMENTs" />
+            <End Role="SALLE" EntitySet="SALLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COURS_MATIERE" Association="AIOPDBModel.FK_COURS_MATIERE">
+            <End Role="MATIERE" EntitySet="MATIEREs" />
+            <End Role="COURS" EntitySet="COURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COURS_TYPECOURS" Association="AIOPDBModel.FK_COURS_TYPECOURS">
+            <End Role="TYPECOURS" EntitySet="TYPECOURS" />
+            <End Role="COURS" EntitySet="COURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENSEIGNEMENT_COURS" Association="AIOPDBModel.FK_ENSEIGNEMENT_COURS">
+            <End Role="COURS" EntitySet="COURS" />
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_CRENAUX" Association="AIOPDBModel.FK_RESERVATION_CRENAUX">
+            <End Role="CRENAUX" EntitySet="CRENAUXes" />
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENSEIGNEMENT_ENSEIGNANT" Association="AIOPDBModel.FK_ENSEIGNEMENT_ENSEIGNANT">
+            <End Role="ENSEIGNANT" EntitySet="ENSEIGNANTs" />
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATIERE_ENSEIGNANT" Association="AIOPDBModel.FK_MATIERE_ENSEIGNANT">
+            <End Role="ENSEIGNANT" EntitySet="ENSEIGNANTs" />
+            <End Role="MATIERE" EntitySet="MATIEREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UE_ENSEIGNANT" Association="AIOPDBModel.FK_UE_ENSEIGNANT">
+            <End Role="ENSEIGNANT" EntitySet="ENSEIGNANTs" />
+            <End Role="UE" EntitySet="UEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENSEIGNEMENT_GROUPE" Association="AIOPDBModel.FK_ENSEIGNEMENT_GROUPE">
+            <End Role="GROUPE" EntitySet="GROUPEs" />
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_ENSEIGNEMENT" Association="AIOPDBModel.FK_RESERVATION_ENSEIGNEMENT">
+            <End Role="ENSEIGNEMENT" EntitySet="ENSEIGNEMENTs" />
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPE_GROUPE" Association="AIOPDBModel.FK_GROUPE_GROUPE">
+            <End Role="GROUPE" EntitySet="GROUPEs" />
+            <End Role="GROUPE1" EntitySet="GROUPEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATIERE_UE" Association="AIOPDBModel.FK_MATIERE_UE">
+            <End Role="UE" EntitySet="UEs" />
+            <End Role="MATIERE" EntitySet="MATIEREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATION_SALLE" Association="AIOPDBModel.FK_RESERVATION_SALLE">
+            <End Role="SALLE" EntitySet="SALLEs" />
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="CARACTERISTIQUE_SALLE" Association="AIOPDBModel.CARACTERISTIQUE_SALLE">
+            <End Role="CARACTERISTIQUE" EntitySet="CARACTERISTIQUEs" />
+            <End Role="SALLE" EntitySet="SALLEs" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVATION_CARACTERISTIQUE" Association="AIOPDBModel.RESERVATION_CARACTERISTIQUE">
+            <End Role="RESERVATION" EntitySet="RESERVATIONs" />
+            <End Role="CARACTERISTIQUE" EntitySet="CARACTERISTIQUEs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ANNEEETUDE">
+          <Key>
+            <PropertyRef Name="ID_ANNEEETUDE" />
+          </Key>
+          <Property Name="ID_ANNEEETUDE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION_ANNEEETUDE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LIBELLE_ANNEEETUDE" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="DUREESEANCE_ANNEEETUDE" Type="Single" />
+          <Property Name="NBSEANCEAM_ANNEEETUDE" Type="Int32" />
+          <Property Name="NBSEANCEPM_ANNEEETUDE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BATIMENT">
+          <Key>
+            <PropertyRef Name="ID_BATIMENT" />
+          </Key>
+          <Property Name="ID_BATIMENT" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLE_BATIMENT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SALLEs" Relationship="AIOPDBModel.FK_SALLE_BATIMENT" FromRole="BATIMENT" ToRole="SALLE" />
+        </EntityType>
+        <EntityType Name="CARACTERISTIQUE">
+          <Key>
+            <PropertyRef Name="ID_CARACTERISTIQUE" />
+          </Key>
+          <Property Name="ID_CARACTERISTIQUE" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLE_CARACTERISTIQUE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SALLEs" Relationship="AIOPDBModel.CARACTERISTIQUE_SALLE" FromRole="CARACTERISTIQUE" ToRole="SALLE" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="AIOPDBModel.RESERVATION_CARACTERISTIQUE" FromRole="CARACTERISTIQUE" ToRole="RESERVATION" />
+        </EntityType>
+        <EntityType Name="COUR">
+          <Key>
+            <PropertyRef Name="ID_COURS" />
+          </Key>
+          <Property Name="ID_COURS" Type="Int32" Nullable="false" />
+          <Property Name="ID_MATIERE" Type="Int32" />
+          <Property Name="ID_TYPE_DE_COURS" Type="Int32" />
+          <Property Name="LIBELLE_COURS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="MATIERE" Relationship="AIOPDBModel.FK_COURS_MATIERE" FromRole="COURS" ToRole="MATIERE" />
+          <NavigationProperty Name="TYPECOUR" Relationship="AIOPDBModel.FK_COURS_TYPECOURS" FromRole="COURS" ToRole="TYPECOURS" />
+          <NavigationProperty Name="ENSEIGNEMENTs" Relationship="AIOPDBModel.FK_ENSEIGNEMENT_COURS" FromRole="COURS" ToRole="ENSEIGNEMENT" />
+        </EntityType>
+        <EntityType Name="CRENAUX">
+          <Key>
+            <PropertyRef Name="ID_CRENEAU" />
+          </Key>
+          <Property Name="ID_CRENEAU" Type="Int32" Nullable="false" />
+          <Property Name="HEURE_DEBUT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="HEURE_FIN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="AIOPDBModel.FK_RESERVATION_CRENAUX" FromRole="CRENAUX" ToRole="RESERVATION" />
+        </EntityType>
+        <EntityType Name="ENSEIGNANT">
+          <Key>
+            <PropertyRef Name="ID_ENSEIGNANT" />
+          </Key>
+          <Property Name="ID_ENSEIGNANT" Type="Int32" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PRENOM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ENSEIGNEMENTs" Relationship="AIOPDBModel.FK_ENSEIGNEMENT_ENSEIGNANT" FromRole="ENSEIGNANT" ToRole="ENSEIGNEMENT" />
+          <NavigationProperty Name="MATIEREs" Relationship="AIOPDBModel.FK_MATIERE_ENSEIGNANT" FromRole="ENSEIGNANT" ToRole="MATIERE" />
+          <NavigationProperty Name="UEs" Relationship="AIOPDBModel.FK_UE_ENSEIGNANT" FromRole="ENSEIGNANT" ToRole="UE" />
+          <Property Type="String" Name="LOGIN" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ENSEIGNEMENT">
+          <Key>
+            <PropertyRef Name="ID_ENSEIGNEMENT" />
+          </Key>
+          <Property Name="ID_ENSEIGNEMENT" Type="Int32" Nullable="false" />
+          <Property Name="ID_COURS" Type="Int32" />
+          <Property Name="ID_ENSEIGNANT" Type="Int32" />
+          <Property Name="ID_GROUPE" Type="Int32" />
+          <Property Name="NB_HEURE_PREVUE" Type="Int32" />
+          <NavigationProperty Name="COUR" Relationship="AIOPDBModel.FK_ENSEIGNEMENT_COURS" FromRole="ENSEIGNEMENT" ToRole="COURS" />
+          <NavigationProperty Name="ENSEIGNANT" Relationship="AIOPDBModel.FK_ENSEIGNEMENT_ENSEIGNANT" FromRole="ENSEIGNEMENT" ToRole="ENSEIGNANT" />
+          <NavigationProperty Name="GROUPE" Relationship="AIOPDBModel.FK_ENSEIGNEMENT_GROUPE" FromRole="ENSEIGNEMENT" ToRole="GROUPE" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="AIOPDBModel.FK_RESERVATION_ENSEIGNEMENT" FromRole="ENSEIGNEMENT" ToRole="RESERVATION" />
+        </EntityType>
+        <EntityType Name="GROUPE">
+          <Key>
+            <PropertyRef Name="ID_GROUPE" />
+          </Key>
+          <Property Name="ID_GROUPE" Type="Int32" Nullable="false" />
+          <Property Name="ID_GROUPE_A_POUR_PERE" Type="Int32" />
+          <Property Name="LIBELLE_GROUPE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ENSEIGNEMENTs" Relationship="AIOPDBModel.FK_ENSEIGNEMENT_GROUPE" FromRole="GROUPE" ToRole="ENSEIGNEMENT" />
+          <NavigationProperty Name="GROUPE1" Relationship="AIOPDBModel.FK_GROUPE_GROUPE" FromRole="GROUPE" ToRole="GROUPE1" />
+          <NavigationProperty Name="GROUPE2" Relationship="AIOPDBModel.FK_GROUPE_GROUPE" FromRole="GROUPE1" ToRole="GROUPE" />
+        </EntityType>
+        <EntityType Name="MATIERE">
+          <Key>
+            <PropertyRef Name="ID_MATIERE" />
+          </Key>
+          <Property Name="ID_MATIERE" Type="Int32" Nullable="false" />
+          <Property Name="ID_UE" Type="Int32" />
+          <Property Name="ID_ENSEIGNANT" Type="Int32" />
+          <Property Name="LIBELLE_MATIERE" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="COURS" Relationship="AIOPDBModel.FK_COURS_MATIERE" FromRole="MATIERE" ToRole="COURS" />
+          <NavigationProperty Name="ENSEIGNANT" Relationship="AIOPDBModel.FK_MATIERE_ENSEIGNANT" FromRole="MATIERE" ToRole="ENSEIGNANT" />
+          <NavigationProperty Name="UE" Relationship="AIOPDBModel.FK_MATIERE_UE" FromRole="MATIERE" ToRole="UE" />
+        </EntityType>
+        <EntityType Name="RESERVATION">
+          <Key>
+            <PropertyRef Name="ID_RESERVATION" />
+          </Key>
+          <Property Name="ID_RESERVATION" Type="Int32" Nullable="false" />
+          <Property Name="ID_SALLE" Type="Int32" Nullable="false" />
+          <Property Name="ID_CRENEAU" Type="Int32" Nullable="false" />
+          <Property Name="ID_ENSEIGNEMENT" Type="Int32" Nullable="false" />
+          <Property Name="DATE_RESERVATION" Type="DateTime" Precision="0" Nullable="false" />
+          <NavigationProperty Name="CRENAUX" Relationship="AIOPDBModel.FK_RESERVATION_CRENAUX" FromRole="RESERVATION" ToRole="CRENAUX" />
+          <NavigationProperty Name="ENSEIGNEMENT" Relationship="AIOPDBModel.FK_RESERVATION_ENSEIGNEMENT" FromRole="RESERVATION" ToRole="ENSEIGNEMENT" />
+          <NavigationProperty Name="SALLE" Relationship="AIOPDBModel.FK_RESERVATION_SALLE" FromRole="RESERVATION" ToRole="SALLE" />
+          <NavigationProperty Name="CARACTERISTIQUEs" Relationship="AIOPDBModel.RESERVATION_CARACTERISTIQUE" FromRole="RESERVATION" ToRole="CARACTERISTIQUE" />
+          <Property Type="Int32" Name="STATUS" />
+        </EntityType>
+        <EntityType Name="SALLE">
+          <Key>
+            <PropertyRef Name="ID_SALLE" />
+          </Key>
+          <Property Name="ID_SALLE" Type="Int32" Nullable="false" />
+          <Property Name="ID_BATIMENT" Type="Int32" />
+          <Property Name="NUMERO_SALLE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BATIMENT" Relationship="AIOPDBModel.FK_SALLE_BATIMENT" FromRole="SALLE" ToRole="BATIMENT" />
+          <NavigationProperty Name="RESERVATIONs" Relationship="AIOPDBModel.FK_RESERVATION_SALLE" FromRole="SALLE" ToRole="RESERVATION" />
+          <NavigationProperty Name="CARACTERISTIQUEs" Relationship="AIOPDBModel.CARACTERISTIQUE_SALLE" FromRole="SALLE" ToRole="CARACTERISTIQUE" />
+        </EntityType>
+        <EntityType Name="SEMESTRE">
+          <Key>
+            <PropertyRef Name="ID_SEMESTRE" />
+          </Key>
+          <Property Name="ID_SEMESTRE" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLE_SEMESTRE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NIVEAU_SEMESTRE" Type="Int32" />
+          <Property Name="ID_ANNEEETUDE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TYPECOUR">
+          <Key>
+            <PropertyRef Name="ID_TYPE_DE_COURS" />
+          </Key>
+          <Property Name="ID_TYPE_DE_COURS" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLE_TYPE_DE_COURS" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="COURS" Relationship="AIOPDBModel.FK_COURS_TYPECOURS" FromRole="TYPECOURS" ToRole="COURS" />
+        </EntityType>
+        <EntityType Name="UE">
+          <Key>
+            <PropertyRef Name="ID_UE" />
+          </Key>
+          <Property Name="ID_UE" Type="Int32" Nullable="false" />
+          <Property Name="LIBELLE_UE" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID_ENSEIGNANT" Type="Int32" />
+          <Property Name="ID_SEMESTRE" Type="Int32" />
+          <NavigationProperty Name="ENSEIGNANT" Relationship="AIOPDBModel.FK_UE_ENSEIGNANT" FromRole="UE" ToRole="ENSEIGNANT" />
+          <NavigationProperty Name="MATIEREs" Relationship="AIOPDBModel.FK_MATIERE_UE" FromRole="UE" ToRole="MATIERE" />
+        </EntityType>
+        <Association Name="FK_SALLE_BATIMENT">
+          <End Role="BATIMENT" Type="AIOPDBModel.BATIMENT" Multiplicity="0..1" />
+          <End Role="SALLE" Type="AIOPDBModel.SALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BATIMENT">
+              <PropertyRef Name="ID_BATIMENT" />
+            </Principal>
+            <Dependent Role="SALLE">
+              <PropertyRef Name="ID_BATIMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COURS_MATIERE">
+          <End Role="MATIERE" Type="AIOPDBModel.MATIERE" Multiplicity="0..1" />
+          <End Role="COURS" Type="AIOPDBModel.COUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATIERE">
+              <PropertyRef Name="ID_MATIERE" />
+            </Principal>
+            <Dependent Role="COURS">
+              <PropertyRef Name="ID_MATIERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COURS_TYPECOURS">
+          <End Role="TYPECOURS" Type="AIOPDBModel.TYPECOUR" Multiplicity="0..1" />
+          <End Role="COURS" Type="AIOPDBModel.COUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPECOURS">
+              <PropertyRef Name="ID_TYPE_DE_COURS" />
+            </Principal>
+            <Dependent Role="COURS">
+              <PropertyRef Name="ID_TYPE_DE_COURS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENSEIGNEMENT_COURS">
+          <End Role="COURS" Type="AIOPDBModel.COUR" Multiplicity="0..1" />
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.ENSEIGNEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COURS">
+              <PropertyRef Name="ID_COURS" />
+            </Principal>
+            <Dependent Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_COURS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_CRENAUX">
+          <End Role="CRENAUX" Type="AIOPDBModel.CRENAUX" Multiplicity="1" />
+          <End Role="RESERVATION" Type="AIOPDBModel.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRENAUX">
+              <PropertyRef Name="ID_CRENEAU" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_CRENEAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENSEIGNEMENT_ENSEIGNANT">
+          <End Role="ENSEIGNANT" Type="AIOPDBModel.ENSEIGNANT" Multiplicity="0..1" />
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.ENSEIGNEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNANT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Principal>
+            <Dependent Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATIERE_ENSEIGNANT">
+          <End Role="ENSEIGNANT" Type="AIOPDBModel.ENSEIGNANT" Multiplicity="0..1" />
+          <End Role="MATIERE" Type="AIOPDBModel.MATIERE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNANT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Principal>
+            <Dependent Role="MATIERE">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UE_ENSEIGNANT">
+          <End Role="ENSEIGNANT" Type="AIOPDBModel.ENSEIGNANT" Multiplicity="0..1" />
+          <End Role="UE" Type="AIOPDBModel.UE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNANT">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Principal>
+            <Dependent Role="UE">
+              <PropertyRef Name="ID_ENSEIGNANT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENSEIGNEMENT_GROUPE">
+          <End Role="GROUPE" Type="AIOPDBModel.GROUPE" Multiplicity="0..1" />
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.ENSEIGNEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPE">
+              <PropertyRef Name="ID_GROUPE" />
+            </Principal>
+            <Dependent Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_GROUPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_ENSEIGNEMENT">
+          <End Role="ENSEIGNEMENT" Type="AIOPDBModel.ENSEIGNEMENT" Multiplicity="1" />
+          <End Role="RESERVATION" Type="AIOPDBModel.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSEIGNEMENT">
+              <PropertyRef Name="ID_ENSEIGNEMENT" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_ENSEIGNEMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPE_GROUPE">
+          <End Role="GROUPE" Type="AIOPDBModel.GROUPE" Multiplicity="0..1" />
+          <End Role="GROUPE1" Type="AIOPDBModel.GROUPE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPE">
+              <PropertyRef Name="ID_GROUPE" />
+            </Principal>
+            <Dependent Role="GROUPE1">
+              <PropertyRef Name="ID_GROUPE_A_POUR_PERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATIERE_UE">
+          <End Role="UE" Type="AIOPDBModel.UE" Multiplicity="0..1" />
+          <End Role="MATIERE" Type="AIOPDBModel.MATIERE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UE">
+              <PropertyRef Name="ID_UE" />
+            </Principal>
+            <Dependent Role="MATIERE">
+              <PropertyRef Name="ID_UE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATION_SALLE">
+          <End Role="SALLE" Type="AIOPDBModel.SALLE" Multiplicity="1" />
+          <End Role="RESERVATION" Type="AIOPDBModel.RESERVATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALLE">
+              <PropertyRef Name="ID_SALLE" />
+            </Principal>
+            <Dependent Role="RESERVATION">
+              <PropertyRef Name="ID_SALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CARACTERISTIQUE_SALLE">
+          <End Role="CARACTERISTIQUE" Type="AIOPDBModel.CARACTERISTIQUE" Multiplicity="*" />
+          <End Role="SALLE" Type="AIOPDBModel.SALLE" Multiplicity="*" />
+        </Association>
+        <Association Name="RESERVATION_CARACTERISTIQUE">
+          <End Role="RESERVATION" Type="AIOPDBModel.RESERVATION" Multiplicity="*" />
+          <End Role="CARACTERISTIQUE" Type="AIOPDBModel.CARACTERISTIQUE" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AIOPDBModelStoreContainer" CdmEntityContainer="AIOPContext">
+          <EntitySetMapping Name="ANNEEETUDEs">
+            <EntityTypeMapping TypeName="AIOPDBModel.ANNEEETUDE">
+              <MappingFragment StoreEntitySet="ANNEEETUDE">
+                <ScalarProperty Name="ID_ANNEEETUDE" ColumnName="ID_ANNEEETUDE" />
+                <ScalarProperty Name="DESCRIPTION_ANNEEETUDE" ColumnName="DESCRIPTION_ANNEEETUDE" />
+                <ScalarProperty Name="LIBELLE_ANNEEETUDE" ColumnName="LIBELLE_ANNEEETUDE" />
+                <ScalarProperty Name="DUREESEANCE_ANNEEETUDE" ColumnName="DUREESEANCE_ANNEEETUDE" />
+                <ScalarProperty Name="NBSEANCEAM_ANNEEETUDE" ColumnName="NBSEANCEAM_ANNEEETUDE" />
+                <ScalarProperty Name="NBSEANCEPM_ANNEEETUDE" ColumnName="NBSEANCEPM_ANNEEETUDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BATIMENTs">
+            <EntityTypeMapping TypeName="AIOPDBModel.BATIMENT">
+              <MappingFragment StoreEntitySet="BATIMENT">
+                <ScalarProperty Name="ID_BATIMENT" ColumnName="ID_BATIMENT" />
+                <ScalarProperty Name="LIBELLE_BATIMENT" ColumnName="LIBELLE_BATIMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARACTERISTIQUEs">
+            <EntityTypeMapping TypeName="AIOPDBModel.CARACTERISTIQUE">
+              <MappingFragment StoreEntitySet="CARACTERISTIQUE">
+                <ScalarProperty Name="ID_CARACTERISTIQUE" ColumnName="ID_CARACTERISTIQUE" />
+                <ScalarProperty Name="LIBELLE_CARACTERISTIQUE" ColumnName="LIBELLE_CARACTERISTIQUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COURS">
+            <EntityTypeMapping TypeName="AIOPDBModel.COUR">
+              <MappingFragment StoreEntitySet="COURS">
+                <ScalarProperty Name="ID_COURS" ColumnName="ID_COURS" />
+                <ScalarProperty Name="ID_MATIERE" ColumnName="ID_MATIERE" />
+                <ScalarProperty Name="ID_TYPE_DE_COURS" ColumnName="ID_TYPE_DE_COURS" />
+                <ScalarProperty Name="LIBELLE_COURS" ColumnName="LIBELLE_COURS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRENAUXes">
+            <EntityTypeMapping TypeName="AIOPDBModel.CRENAUX">
+              <MappingFragment StoreEntitySet="CRENAUX">
+                <ScalarProperty Name="ID_CRENEAU" ColumnName="ID_CRENEAU" />
+                <ScalarProperty Name="HEURE_DEBUT" ColumnName="HEURE_DEBUT" />
+                <ScalarProperty Name="HEURE_FIN" ColumnName="HEURE_FIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENSEIGNANTs">
+            <EntityTypeMapping TypeName="AIOPDBModel.ENSEIGNANT">
+              <MappingFragment StoreEntitySet="ENSEIGNANT">
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="ID_ENSEIGNANT" ColumnName="ID_ENSEIGNANT" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="PRENOM" ColumnName="PRENOM" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENSEIGNEMENTs">
+            <EntityTypeMapping TypeName="AIOPDBModel.ENSEIGNEMENT">
+              <MappingFragment StoreEntitySet="ENSEIGNEMENT">
+                <ScalarProperty Name="ID_ENSEIGNEMENT" ColumnName="ID_ENSEIGNEMENT" />
+                <ScalarProperty Name="ID_COURS" ColumnName="ID_COURS" />
+                <ScalarProperty Name="ID_ENSEIGNANT" ColumnName="ID_ENSEIGNANT" />
+                <ScalarProperty Name="ID_GROUPE" ColumnName="ID_GROUPE" />
+                <ScalarProperty Name="NB_HEURE_PREVUE" ColumnName="NB_HEURE_PREVUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPEs">
+            <EntityTypeMapping TypeName="AIOPDBModel.GROUPE">
+              <MappingFragment StoreEntitySet="GROUPE">
+                <ScalarProperty Name="ID_GROUPE" ColumnName="ID_GROUPE" />
+                <ScalarProperty Name="ID_GROUPE_A_POUR_PERE" ColumnName="ID_GROUPE_A_POUR_PERE" />
+                <ScalarProperty Name="LIBELLE_GROUPE" ColumnName="LIBELLE_GROUPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATIEREs">
+            <EntityTypeMapping TypeName="AIOPDBModel.MATIERE">
+              <MappingFragment StoreEntitySet="MATIERE">
+                <ScalarProperty Name="ID_MATIERE" ColumnName="ID_MATIERE" />
+                <ScalarProperty Name="ID_UE" ColumnName="ID_UE" />
+                <ScalarProperty Name="ID_ENSEIGNANT" ColumnName="ID_ENSEIGNANT" />
+                <ScalarProperty Name="LIBELLE_MATIERE" ColumnName="LIBELLE_MATIERE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVATIONs">
+            <EntityTypeMapping TypeName="AIOPDBModel.RESERVATION">
+              <MappingFragment StoreEntitySet="RESERVATION">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ID_RESERVATION" ColumnName="ID_RESERVATION" />
+                <ScalarProperty Name="ID_SALLE" ColumnName="ID_SALLE" />
+                <ScalarProperty Name="ID_CRENEAU" ColumnName="ID_CRENEAU" />
+                <ScalarProperty Name="ID_ENSEIGNEMENT" ColumnName="ID_ENSEIGNEMENT" />
+                <ScalarProperty Name="DATE_RESERVATION" ColumnName="DATE_RESERVATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALLEs">
+            <EntityTypeMapping TypeName="AIOPDBModel.SALLE">
+              <MappingFragment StoreEntitySet="SALLE">
+                <ScalarProperty Name="ID_SALLE" ColumnName="ID_SALLE" />
+                <ScalarProperty Name="ID_BATIMENT" ColumnName="ID_BATIMENT" />
+                <ScalarProperty Name="NUMERO_SALLE" ColumnName="NUMERO_SALLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEMESTREs">
+            <EntityTypeMapping TypeName="AIOPDBModel.SEMESTRE">
+              <MappingFragment StoreEntitySet="SEMESTRE">
+                <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
+                <ScalarProperty Name="LIBELLE_SEMESTRE" ColumnName="LIBELLE_SEMESTRE" />
+                <ScalarProperty Name="NIVEAU_SEMESTRE" ColumnName="NIVEAU_SEMESTRE" />
+                <ScalarProperty Name="ID_ANNEEETUDE" ColumnName="ID_ANNEEETUDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPECOURS">
+            <EntityTypeMapping TypeName="AIOPDBModel.TYPECOUR">
+              <MappingFragment StoreEntitySet="TYPECOURS">
+                <ScalarProperty Name="ID_TYPE_DE_COURS" ColumnName="ID_TYPE_DE_COURS" />
+                <ScalarProperty Name="LIBELLE_TYPE_DE_COURS" ColumnName="LIBELLE_TYPE_DE_COURS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UEs">
+            <EntityTypeMapping TypeName="AIOPDBModel.UE">
+              <MappingFragment StoreEntitySet="UE">
+                <ScalarProperty Name="ID_UE" ColumnName="ID_UE" />
+                <ScalarProperty Name="LIBELLE_UE" ColumnName="LIBELLE_UE" />
+                <ScalarProperty Name="ID_ENSEIGNANT" ColumnName="ID_ENSEIGNANT" />
+                <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CARACTERISTIQUE_SALLE" TypeName="AIOPDBModel.CARACTERISTIQUE_SALLE" StoreEntitySet="CARACTERISTIQUE_SALLE">
+            <EndProperty Name="CARACTERISTIQUE">
+              <ScalarProperty Name="ID_CARACTERISTIQUE" ColumnName="ID_CARACTERISTIQUE" />
+            </EndProperty>
+            <EndProperty Name="SALLE">
+              <ScalarProperty Name="ID_SALLE" ColumnName="ID_SALLE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RESERVATION_CARACTERISTIQUE" TypeName="AIOPDBModel.RESERVATION_CARACTERISTIQUE" StoreEntitySet="RESERVATION_CARACTERISTIQUE">
+            <EndProperty Name="RESERVATION">
+              <ScalarProperty Name="ID_RESERVATION" ColumnName="ID_RESERVATION" />
+            </EndProperty>
+            <EndProperty Name="CARACTERISTIQUE">
+              <ScalarProperty Name="ID_CARACTERISTIQUE" ColumnName="ID_CARACTERISTIQUE" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

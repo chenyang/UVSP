@@ -1,0 +1,50 @@
+﻿@model ProjetAiopMVC.Models.ENSEIGNEMENT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ENSEIGNEMENT</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ID_ENSEIGNEMENT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ID_ENSEIGNEMENT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.COUR.LIBELLE_COURS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.COUR.LIBELLE_COURS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ENSEIGNANT.NOM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ENSEIGNANT.NOM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GROUPE.LIBELLE_GROUPE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GROUPE.LIBELLE_GROUPE)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NB_HEURE_PREVUE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NB_HEURE_PREVUE)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_ENSEIGNEMENT/* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

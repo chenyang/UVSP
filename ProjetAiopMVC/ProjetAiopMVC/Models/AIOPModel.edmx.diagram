@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c6641a45f00457588ce6f8c6d278841" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="AIOPDBModel.ANNEEETUDE" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.BATIMENT" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.CARACTERISTIQUE" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.COUR" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.CRENAUX" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.ENSEIGNANT" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.ENSEIGNEMENT" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.GROUPE" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.MATIERE" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.RESERVATION" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.SALLE" Width="1.5" PointX="9.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.SEMESTRE" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.TYPECOUR" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIOPDBModel.UE" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="AIOPDBModel.FK_SALLE_BATIMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_COURS_MATIERE" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_COURS_TYPECOURS" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_ENSEIGNEMENT_COURS" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_RESERVATION_CRENAUX" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_ENSEIGNEMENT_ENSEIGNANT" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_MATIERE_ENSEIGNANT" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_UE_ENSEIGNANT" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_ENSEIGNEMENT_GROUPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_RESERVATION_ENSEIGNEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_GROUPE_GROUPE" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_MATIERE_UE" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.FK_RESERVATION_SALLE" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.CARACTERISTIQUE_SALLE" ManuallyRouted="false" />
+        <AssociationConnector Association="AIOPDBModel.RESERVATION_CARACTERISTIQUE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

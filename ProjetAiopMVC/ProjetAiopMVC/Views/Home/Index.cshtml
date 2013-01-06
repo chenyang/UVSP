@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Page d'accueil";
+}
+
+<div class="container-fluid" id="hero-home" style="margin-left: -50px">
+    <div class="row">
+        <div class="span5">
+            <div class="hero-unit">
+                <h3>Consultation</h3>
+                <p>Visualisation de l'emploi du temps et de mon emploi du temps</p>
+                <div class="btn btn-inverse btn-large">@Html.ActionLink("En savoir plus", "Index", "Edt")</div>
+            </div>
+        </div>
+
+        <div class="span5">
+            <div class="hero-unit">
+                <h3>Mes réservations</h3>
+                <p>Gestion de mes reservations de salles et de créneaux horaires</p>
+                <div class="btn btn-inverse btn-large">@Html.ActionLink("En savoir plus", "Index", "Reservation")</div>
+            </div>
+        </div>
+        <div class="span5">
+            <div class="hero-unit">
+                <h3>Mon profil</h3>
+                <p>Gestion de mes données utilisateur</p>
+                <br />
+
+                <div class="btn btn-inverse btn-large">@Html.ActionLink("En savoir plus", "Index", "Profil")</div>
+            </div>
+        </div>       
+            @if(User.IsInRole("Super_user"))
+            {
+        <div class="span5">
+            <div class="hero-unit">
+                <h3>Gestion enseignants</h3>
+                <p>Gestion des différents enseignants de Polytech'Montpellier</p>
+                <div class="btn btn-inverse btn-large">@Html.ActionLink("En savoir plus", "Index", "Enseignant")</div>
+            </div>
+        </div>
+        <div class="span5">
+            <div class="hero-unit">
+                <h3>Gestion des réservations</h3>
+                <p>Gestion des différentes réservations de salles et de créneaux horaires</p>
+                <div class="btn btn-inverse btn-large">@Html.ActionLink("En savoir plus", "Index", "Greservation")</div>
+            </div>
+        </div>
+        <div class="span5">
+            <div class="hero-unit">
+                <h3>Gestion salles</h3>
+                <p>Gestion des différentes salles de Polytech'Montpellier</p>
+                <div class="btn btn-inverse btn-large">@Html.ActionLink("En savoir plus", "Index", "Salle")</div>
+            </div>
+        </div>     
+            }
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjetAiopMVC.Models.ENSEIGNEMENT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_ENSEIGNEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COUR.LIBELLE_COURS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENSEIGNANT.NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GROUPE.LIBELLE_GROUPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NB_HEURE_PREVUE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_ENSEIGNEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COUR.LIBELLE_COURS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENSEIGNANT.NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GROUPE.LIBELLE_GROUPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NB_HEURE_PREVUE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_ENSEIGNEMENT/* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID_ENSEIGNEMENT/* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_ENSEIGNEMENT/* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
